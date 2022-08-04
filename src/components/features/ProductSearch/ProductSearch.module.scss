@@ -11,6 +11,22 @@
     display: flex;
     align-items: center;
     position: relative;
+    font-size: 14px;
+
+    :hover {
+      outline: 1px solid #d58e32;
+      color: #d58e32;
+    }
+
+    :focus {
+      outline: none;
+    }
+
+    &:hover {
+      .icon:first-child {
+        color: $form-border-color;
+      }
+    }
 
     .icon:first-child {
       color: $primary;
@@ -32,6 +48,7 @@
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
+      cursor: pointer;
     }
   }
 
