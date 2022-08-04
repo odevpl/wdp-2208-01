@@ -4,10 +4,13 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
+  
+  &:hover .price {
+    background: $primary;
+  }
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
     background: {
       color: #f4f5f7;
       size: contain;
@@ -17,6 +20,11 @@
     overflow: hidden;
     align-items: flex-end;
 
+    .image {
+      object-fit: cover;
+      width: 280px;
+      height: 220px;
+    }
     .sale {
       position: absolute;
       top: -30px;
@@ -31,8 +39,16 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      visibility: hidden;
+    }
+    
+    &:hover .buttons {
+      cursor: pointer;
+      visibility: visible;
     }
   }
+
+
 
   .content {
     text-align: center;
