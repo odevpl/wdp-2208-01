@@ -14,6 +14,11 @@ import Button from '../Button/Button';
 const ProductBox = ({ name, price, promo, stars }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
+      <img
+        className={styles.image}
+        alt={name}
+        src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
+      />
       {promo && <div className={styles.sale}>{promo}</div>}
       <div className={styles.buttons}>
         <Button variant='small'>Quick View</Button>
