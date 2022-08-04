@@ -26,7 +26,9 @@ const CompanyClaim = () => (
             <div className={styles.cartIcon}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
             </div>
-            <div className={styles.cartCounter}>0</div>
+            <div className={styles.cartCounter}>
+              <div className={styles.itemsAmount}>0</div>
+            </div>
           </a>
         </div>
       </div>
