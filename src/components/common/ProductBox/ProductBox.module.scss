@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  background-color: $product-bg;
+  border: 1px solid $product-border-color;
   margin-bottom: 2rem;
   
   &:hover .price {
@@ -13,7 +13,7 @@
     position: relative;
     padding: 80% 10px 0 10px;
     background: {
-      color: #f4f5f7;
+      color: $product-photo-bg;
       size: contain;
       position: center;
       repeat: no-repeat;
@@ -26,9 +26,9 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $product-sale-bg;
       border-radius: 50%;
-      color: #ffffff;
+      color: $text-color-light;
       padding: 30px 15px 5px 15px;
     }
 
@@ -60,14 +60,14 @@
     .stars {
       a {
         text-decoration: none;
-        color: rgb(42, 42, 42);
+        color: $product-star-color;
       }
     }
   }
 
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid $product-line-color;
     position: relative;
 
     &::before {
