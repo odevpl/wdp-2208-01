@@ -11,28 +11,19 @@ const ProductSearch = () => (
     <div className={styles.category}>
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
 
-      <ul id='dropmenu'>
-        <li>Select category</li>
-        <ul>
-          <li>
-            <a href='#'>Furniture</a>
-          </li>
-          <li>
-            <a href='#'>Chair</a>
-          </li>
-          <li>
-            <a href='#'>Table</a>
-          </li>
-          <li>
-            <a href='#'>Sofa</a>
-          </li>
-          <li>
-            <a href='#'>Bedroom</a>
-          </li>
-        </ul>
+      <ul className={styles.dropdownMenu}>
+        <li>
+          Select category
+          <ul className={styles.dropdownElements}>
+            <li>Furniture</li>
+            <li>Chair</li>
+            <li>Table</li>
+            <li>Sofa</li>
+            <li>Bedroom</li>
+          </ul>
+          <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
+        </li>
       </ul>
-
-      <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>
       <input placeholder='Search products...' type='text' />

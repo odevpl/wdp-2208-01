@@ -21,51 +21,50 @@
 
     .icon:last-child {
       position: absolute;
-      right: 10px;
+      right: 15px;
+      top: 7px;
       z-index: 0;
     }
 
-    /* in progress start */
+    /* styling for Select dropdown menu */
 
     ul {
-      margin: 5px 30px 5px 0px;
-
-      li {
-      position: relative;
-      display: block;
-      }
-
-      ul {
-        display: none;
-        background-color: red;
-      }
-
-      li {
-        display: block;
-        padding: 5px 10px;
-        text-decoration: none;
-      }
-
-      li:hover .dropdownMenu {
-          display: block;
-          position: absolute;
-          background-color: green;
-        }
-
-
+      margin: 0;
+      list-style-type: none;
     }
 
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
+    .dropdownMenu {
+      font-size: 14px;
+      padding: 5px 35px 5px 40px;
       position: relative;
       z-index: 1;
     }
 
-    /* in progress end */
+    .dropdownElements {
+      display: none;
+      padding: 0;
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      border: 1px solid $header-bg;
+      left: 0;
+    }
 
+    .dropdownElements li {
+      padding: 5px 35px 5px 40px;
+      color: $header-bg;
+    }
+
+
+
+    .dropdownMenu li:hover .dropdownElements {
+      display: block;
+    }
+
+    .dropdownElements li:hover {
+      background-color: $primary;
+      color: white;
+    }
 
   }
 
