@@ -4,6 +4,10 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
+  
+  &:hover .price {
+    background: $primary;
+  }
 
   .photo {
     position: relative;
@@ -31,8 +35,16 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      visibility: hidden;
+    }
+    
+    &:hover .buttons {
+      cursor: pointer;
+      visibility: visible;
     }
   }
+
+
 
   .content {
     text-align: center;
@@ -75,4 +87,6 @@
     justify-content: space-between;
     align-items: center;
   }
+
+
 }
