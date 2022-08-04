@@ -101,4 +101,14 @@
       color: #fff;
     }
   }
+
+  .price {
+    display: flex;
+    align-items: center;
+    
+    .oldPrice {
+      text-decoration: line-through black;
+      color: #B5B5B5;
+    }
+  }
 }
