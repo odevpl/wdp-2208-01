@@ -43,10 +43,10 @@
     .dropdownElements {
       display: none;
       padding: 0;
+      border: 1px solid $header-bg;
       position: absolute;
       background-color: white;
       width: 100%;
-      border: 1px solid $header-bg;
       left: 0;
     }
 
@@ -54,8 +54,6 @@
       padding: 5px 35px 5px 40px;
       color: $header-bg;
     }
-
-
 
     .dropdownMenu li:hover .dropdownElements {
       display: block;
@@ -65,7 +63,6 @@
       background-color: $primary;
       color: white;
     }
-
   }
 
   .searchField {
