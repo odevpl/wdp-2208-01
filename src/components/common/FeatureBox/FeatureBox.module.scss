@@ -61,7 +61,8 @@
     }
   }
 
-  &.active {
+  &.active,
+  &:hover {
     .iconWrapper {
       color: #ffffff;
 
