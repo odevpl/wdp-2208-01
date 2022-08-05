@@ -13,8 +13,8 @@ import { getCount } from '../../../redux/comparesRedux';
 import { useSelector } from 'react-redux';
 
 const ProductBox = ({ name, price, promo, stars }) => {
-  // const comparesLength = useSelector(state => getCount(state));
-  // console.log(comparesLength);
+  const comparesLength = useSelector(state => getCount(state));
+  console.log(comparesLength);
 
   return (
     <div className={styles.root}>
