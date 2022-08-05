@@ -6,14 +6,17 @@ const reducerName = 'compares';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
-const ADD_PRODUCT = createActionName('ADD_PRODUCT');
+const ADD_PRODUCT_TO_COMPARES = createActionName('ADD_PRODUCT_TO_COMPARES');
 
 /* action creators */
-export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
+export const addProductToCompares = payload => ({
+  payload,
+  type: ADD_PRODUCT_TO_COMPARES,
+});
 
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case ADD_PRODUCT:
+    case ADD_PRODUCT_TO_COMPARES:
       return statePart;
 
     default:

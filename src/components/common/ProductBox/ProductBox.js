@@ -9,12 +9,22 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
-import { getCount } from '../../../redux/comparesRedux';
-import { useSelector } from 'react-redux';
+import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductBox = ({ name, price, promo, stars }) => {
   const comparesLength = useSelector(state => getCount(state));
   console.log(comparesLength);
+
+  // const dispatch = useDispatch();
+
+  // const handleCLickCompare = e => {
+  //   e.preventDefault();
+  //   dispatch(addProductToCompares(productId));
+  // };
+
+  // className={clsx(styles.buttonActive, isFavorite && styles.isActive)}
+  // onClick={handleCLickCompare}
 
   return (
     <div className={styles.root}>
