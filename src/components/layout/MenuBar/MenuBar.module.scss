@@ -8,9 +8,15 @@
     height: 84px;
   }
 
+  .span_icon {
+    display: inline;
+  }
+
   .menu {
     display: flex;
     align-self: stretch;
+    align-items: stretch;
+    padding: 0;
 
     ul {
       margin: 0;
@@ -52,9 +58,25 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
   .root {
-    min-height: 120px;
+    min-height: 150px;
     .menu {
       margin-bottom: 10px;
+      margin-left: 0;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding-left: 0;
+    button {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .searchBox {
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
   }
 }
