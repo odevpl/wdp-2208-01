@@ -4,6 +4,10 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
+  
+  &:hover .price {
+    background: $primary;
+  }
 
   .photo {
     position: relative;
@@ -18,7 +22,7 @@
 
     .image {
       object-fit: cover;
-      width: 220px;
+      width: 280px;
       height: 220px;
     }
     .sale {
@@ -35,8 +39,16 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      visibility: hidden;
+    }
+    
+    &:hover .buttons {
+      cursor: pointer;
+      visibility: visible;
     }
   }
+
+
 
   .content {
     text-align: center;
@@ -77,7 +89,17 @@
     padding: 15px 10px 10px 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;   
+    
+    .favorite {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+    
+    .compare {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
   }
 }
 
