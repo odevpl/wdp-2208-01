@@ -69,37 +69,36 @@ const MenuBar = ({ children }) => {
               </div>
             )}
           </div>
-        </div>
-
-        <div
-          className={`navbar navbar-expand-md fixed col-auto navbar-default  ${styles.menu}`}
-        >
-          <div className='align-items-stretch' id='mobile-menu'>
-            <ul className=' navbar-nav mr-auto'>
-              <li className='nav-item'>
-                <a href='#' className={styles.active}>
-                  Home
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Furniture</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Chair</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Table</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Sofa</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Bedroom</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Blog</a>
-              </li>
-            </ul>
+          <div
+            className={` navbar-expand-md fixed col-auto navbar-default  ${styles.menu}`}
+          >
+            <div className='align-items-stretch' id='mobile-menu'>
+              <ul className=' navbar-nav mr-auto'>
+                <li className='nav-item'>
+                  <a href='#' className={styles.active}>
+                    Home
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <a href='#'>Furniture</a>
+                </li>
+                <li className='nav-item'>
+                  <a href='#'>Chair</a>
+                </li>
+                <li className='nav-item'>
+                  <a href='#'>Table</a>
+                </li>
+                <li className='nav-item'>
+                  <a href='#'>Sofa</a>
+                </li>
+                <li className='nav-item'>
+                  <a href='#'>Bedroom</a>
+                </li>
+                <li className='nav-item'>
+                  <a href='#'>Blog</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
