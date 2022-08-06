@@ -35,7 +35,7 @@
       border-top: 4px solid #ffffff;
       font-weight: 500;
       letter-spacing: 1px;
-
+      transition: $transition;
       &:hover,
       &.active {
         background-color: $primary;

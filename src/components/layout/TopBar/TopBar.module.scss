@@ -15,7 +15,7 @@
       a {
         color: #ffffff;
         font-size: 13px;
-
+        transition: $transition;
         &:hover {
           color: $primary;
           text-decoration: none;
