@@ -4,13 +4,20 @@ import PropTypes from 'prop-types';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './MenuBar.module.scss';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHamburger } from '@fortawesome/free-solid-svg-icons';
 // import { Nav, Navbar } from 'react-bootstrap';
 
 const MenuBar = ({ children }) => {
   const [show, setShow] = useState(false);
 
-  const toggleMenu = () => {};
+  const handleToggleMenu = e => {
+    e.preventDefault();
+    if (!show) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  };
 
   return (
     <div className={styles.root}>
@@ -22,63 +29,45 @@ const MenuBar = ({ children }) => {
             <ProductSearch />
           </div>
 
-          {/* <div className='hamburgerMenu'>
-          <Navbar collapseOnSelect expand='lg'>
-            <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-            <Navbar.Collapse id='responsive-navbar-nav'>
-              <Nav className='mr-auto list'>
-                <Nav.Link href='#' className={`${styles.listElement} ${styles.active}`}>
-                  Home
-                </Nav.Link>
-                <Nav.Link href='#' className={`${styles.listElement} `}>
-                  Furniture
-                </Nav.Link>
-                <Nav.Link href='#' className={`${styles.listElement}`}>
-                  Chair
-                </Nav.Link>
-                <Nav.Link href='#'>Table</Nav.Link>
-                <Nav.Link href='#'>Sofa</Nav.Link>
-                <Nav.Link href='#'>Bedroom</Nav.Link>
-                <Nav.Link href='#'>Blog</Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar>
-        </div> */}
+          <div className={styles.mobile_menu}>
+            <button className={styles.collapse_icon} onClick={handleToggleMenu}>
+              <span>
+                <FontAwesomeIcon className={styles.icon} icon={faBars} />
+              </span>
+            </button>
 
-          <button className={styles.hamburgerMenu}>
-            <span>
-              <FontAwesomeIcon className={styles.icon} icon={faBars} />
-            </span>
-          </button>
-          <div
-            className={`${styles.collapse_list} align-items-stretch`}
-            id='mobile-menu'
-          >
-            <ul className=' navbar-nav mr-auto'>
-              <li className='nav-item'>
-                <a href='#' className={styles.active}>
-                  Home
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Furniture</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Chair</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Table</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Sofa</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Bedroom</a>
-              </li>
-              <li className='nav-item'>
-                <a href='#'>Blog</a>
-              </li>
-            </ul>
+            {show && (
+              <div
+                className={`${styles.collapse_list} align-items-stretch`}
+                id='mobile-menu'
+              >
+                <ul className='navbar-nav mr-auto'>
+                  <li className='nav-item'>
+                    <a href='#' className={styles.active}>
+                      Home
+                    </a>
+                  </li>
+                  <li className='nav-item'>
+                    <a href='#'>Furniture</a>
+                  </li>
+                  <li className='nav-item'>
+                    <a href='#'>Chair</a>
+                  </li>
+                  <li className='nav-item'>
+                    <a href='#'>Table</a>
+                  </li>
+                  <li className='nav-item'>
+                    <a href='#'>Sofa</a>
+                  </li>
+                  <li className='nav-item'>
+                    <a href='#'>Bedroom</a>
+                  </li>
+                  <li className='nav-item'>
+                    <a href='#'>Blog</a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
