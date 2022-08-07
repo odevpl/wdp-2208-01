@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../../common/Swipeable/Swipeable';
-import CompareBar from '../../features/CompareBar/CompareBar';
+import CompareBar from '../CompareBar/CompareBar';
 
 class NewFurniture extends React.Component {
   state = {

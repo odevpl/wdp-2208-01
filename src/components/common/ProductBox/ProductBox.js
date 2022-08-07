@@ -48,9 +48,6 @@ const ProductBox = ({
     }
   };
 
-  // className={clsx(styles.buttonActive, isFavorite && styles.isActive)}
-  // onClick={handleCLickCompare}
-
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
