@@ -112,3 +112,18 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .root {
+    .category {
+      font-size: 12px;
+      max-width: 200px;
+    }
+    .searchField {
+      input {
+        max-width: 150px;
+        font-size: 12px;
+      }
+    }
+  }
+}
