@@ -50,7 +50,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^5.2.0",
     "clsx": "^1.2.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -61,6 +61,7 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
+    "react-swipeable": "^7.0.0",
     "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4"
   },

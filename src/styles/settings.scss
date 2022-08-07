@@ -1,16 +1,64 @@
+// COLORS PALETTE
+$color-light: #fff;
+
+$color-grey-960: #f4f5f7;
+$color-grey-900: rgb(224, 227, 237);
+$color-grey-880: #e1e1e1;
+$color-grey-890: #e2e2e2;
+$color-grey-850: rgb(216, 216, 216);
+$color-grey-710: #b5b5b5;
+$color-grey-660: rgb(169, 169, 169);
+$color-grey-260: #434343;
+$color-grey-210: #363636;
+$color-grey-165: #2a2a2a;
+$color-grey-160: #292929;
+
+$color-brown: rgb(42, 42, 42);
+$color-black: rgba(1, 2, 2, 0.2);
+
+$color-orange: #d58e32;
+
+// Colors variables used in project
+$header-topbar-bg: $color-grey-260;
+$header-bg: $color-grey-210;
+
+$footer-claim-bg: $color-grey-165;
+$footer-bg: $color-grey-210;
+$footer-text-color: $color-grey-660;
+$primary: $color-orange;
+$text-color: $color-grey-165;
+$text-color-light: $color-light;
+$form-border-color: $color-grey-160;
+$button-bg-dark: $color-grey-165;
+$button-border-color: $color-grey-165;
+$feature-border-color: $color-grey-710;
+$feature-icon-bg: $color-light;
+$feature-icon-active-color: $color-light;
+$feature-text-color: $color-brown;
+
+$product-bg: $color-light;
+$product-sale-bg: $color-grey-160;
+$product-border-color: $color-grey-880;
+$product-photo-bg: $color-grey-960;
+$product-star-color: $color-brown;
+$product-line-color: $color-grey-165;
+
+$newFurNav-line-color: $color-grey-890;
+$newFurNav-link-color: $color-brown;
+$newFurNav-link-color: $color-brown;
+$newFurNav-dots-bg: $color-light;
+$newFurNav-dots-color: $color-grey-880;
+
+$phoneNo-color: $color-grey-850;
+$cart-color: $color-light;
+$cartCounter-color: $color-grey-900;
+
+$menuBar-shadow-color: $color-black;
+$menuBar-bg: $color-light;
+$menuBar-border-color: $color-light;
+
+//Other settings
 $base-padding: 24px;
-
-$header-topbar-bg: #434343;
-$header-bg: #363636;
-
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
-
-$primary: #d58e32;
-
-$text-color: #2a2a2a;
-
-$form-border-color: #292929;
 
 $transition: color 250ms, background-color 250ms, opacity 250ms;
 
