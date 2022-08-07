@@ -1,5 +1,6 @@
 /* selectors */
 export const getCount = ({ compares }) => compares.length;
+export const getCompares = ({ compares }) => compares;
 
 /* action name creator */
 const reducerName = 'compares';

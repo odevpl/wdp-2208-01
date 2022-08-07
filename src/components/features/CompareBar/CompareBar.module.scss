@@ -1,0 +1,20 @@
+.stickyBar {
+  position: sticky;
+  bottom: 0;
+
+  .productList {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    background-color: #d58e32;
+    img {
+      object-fit: cover;
+      width: 150px;
+      height: 120px;
+    }
+    .icon {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+  }
+}
