@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { startTransition } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,15 +12,41 @@ import Button from '../Button/Button';
 import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ProductBox = ({ name, price, promo, stars, favorite, compare, oldPrice }) => {
+const ProductBox = ({
+  name,
+  price,
+  promo,
+  stars,
+  id,
+  favorite,
+  compare,
+  oldPrice,
+  newFurniture,
+  category,
+}) => {
   const comparesLength = useSelector(state => getCount(state));
   console.log(comparesLength);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleCLickCompare = e => {
-  //   e.preventDefault();
-  //   dispatch(addProductToCompares(productId));
-  // };
+  const compareProduct = {
+    id: id,
+    name: name,
+    price: price,
+    promo: promo,
+    stars: stars,
+    favorite: favorite,
+    compare: compare,
+    newFurniture: newFurniture,
+    category: category,
+  };
+
+  const handleCLickCompare = e => {
+    e.preventDefault();
+    if (comparesLength < 4) {
+      console.log(comparesLength);
+      dispatch(addProductToCompares(compareProduct));
+    }
+  };
 
   // className={clsx(styles.buttonActive, isFavorite && styles.isActive)}
   // onClick={handleCLickCompare}
@@ -61,7 +87,11 @@ const ProductBox = ({ name, price, promo, stars, favorite, compare, oldPrice }) 
           <Button className={favorite ? styles.favorite : ''} variant='outline'>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button className={compare ? styles.compare : ''} variant='outline'>
+          <Button
+            className={compare ? styles.compare : ''}
+            variant='outline'
+            onClick={handleCLickCompare}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -85,6 +115,9 @@ ProductBox.propTypes = {
   favorite: PropTypes.string,
   compare: PropTypes.string,
   oldPrice: PropTypes.number,
+  id: PropTypes.string,
+  newFurniture: PropTypes.bool,
+  category: PropTypes.string,
 };
 
 export default ProductBox;

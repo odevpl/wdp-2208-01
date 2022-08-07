@@ -1,5 +1,5 @@
 /* selectors */
-export const getCount = ({ compares }) => compares.products.length;
+export const getCount = ({ compares }) => compares.length;
 
 /* action name creator */
 const reducerName = 'compares';
@@ -17,7 +17,7 @@ export const addProductToCompares = payload => ({
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_PRODUCT_TO_COMPARES:
-      return statePart;
+      return [...statePart, { ...action.payload }];
 
     default:
       return statePart;
