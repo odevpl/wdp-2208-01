@@ -1,8 +1,8 @@
 import React from 'react';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import clsx from 'clsx';
 import scssVariables from '../../../styles/settings.scss';
 class NewFurniture extends React.Component {
   state = {
@@ -12,7 +12,6 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    console.log(scssVariables.fadeTime);
     this.setState({ fade: false });
     setTimeout(() => {
       this.setState({ activePage: newPage });
