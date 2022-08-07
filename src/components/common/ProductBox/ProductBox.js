@@ -12,10 +12,9 @@ import Button from '../Button/Button';
 import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ProductBox = ({ name, price, promo, stars }) => {
+const ProductBox = ({ name, price, promo, stars, favorite, compare, oldPrice }) => {
   const comparesLength = useSelector(state => getCount(state));
   console.log(comparesLength);
-
   // const dispatch = useDispatch();
 
   // const handleCLickCompare = e => {
@@ -59,14 +58,15 @@ const ProductBox = ({ name, price, promo, stars }) => {
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button variant='outline'>
+          <Button className={favorite ? styles.favorite : ''} variant='outline'>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline'>
+          <Button className={compare ? styles.compare : ''} variant='outline'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
         <div className={styles.price}>
+          {oldPrice && <span className={styles.oldPrice + ' mx-1'}>$ {oldPrice}</span>}
           <Button noHover variant='small'>
             $ {price}
           </Button>
@@ -82,6 +82,9 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  favorite: PropTypes.string,
+  compare: PropTypes.string,
+  oldPrice: PropTypes.number,
 };
 
 export default ProductBox;
