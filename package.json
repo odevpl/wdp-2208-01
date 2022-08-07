@@ -69,6 +69,6 @@
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
     "redux-devtools-extension": "^2.13.8",
-    "sass": "^1.54.1"
+    "sass": "^1.54.3"
   }
 }
