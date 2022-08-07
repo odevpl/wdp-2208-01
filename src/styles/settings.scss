@@ -13,3 +13,9 @@ $text-color: #2a2a2a;
 $form-border-color: #292929;
 
 $transition: color 250ms, background-color 250ms, opacity 250ms;
+
+$fade-time: 500ms;
+
+:export {
+  fadeTime: $fade-time;
+}
