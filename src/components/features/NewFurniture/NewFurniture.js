@@ -47,16 +47,16 @@ class NewFurniture extends React.Component {
       );
     }
     const leftAction = () => {
-      this.setState({ activePage: activePage + 1 });
+      this.handlePageChange(activePage + 1);
       if (activePage >= pagesCount - 1) {
-        this.setState({ activePage: activePage });
+        this.handlePageChange(activePage);
       }
     };
 
     const rightAction = () => {
-      this.setState({ activePage: activePage - 1 });
+      this.handlePageChange(activePage - 1);
       if (activePage <= 0) {
-        this.setState({ activePage: activePage });
+        this.handlePageChange(activePage);
       }
     };
     return (
