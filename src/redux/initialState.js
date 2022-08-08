@@ -582,6 +582,12 @@ const initialState = {
         compare: false,
       },
     ],
+    categories: [
+      { id: 'featured', name: 'Featured' },
+      { id: 'topSeller', name: 'Top Seller' },
+      { id: 'saleOff', name: 'Sale Off' },
+      { id: 'topRated', name: 'Top Rated' },
+    ],
   },
 };
 
