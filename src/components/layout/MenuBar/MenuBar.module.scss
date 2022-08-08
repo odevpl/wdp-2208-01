@@ -10,7 +10,7 @@
 
   .menu {
     display: flex;
-    align-self: stretch;
+    align-items: stretch;
 
     ul {
       margin: 0;
@@ -47,5 +47,97 @@
         border-color: $text-color;
       }
     }
+  }
+  .mobile_menu {
+    display: none;
+    position: relative;
+    align-items: stretch;
+
+    .collapse_list {
+      display: none;
+      position: absolute;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+        li {
+          list-style: none;
+          display: flex;
+          align-items: stretch;
+        }
+      }
+
+      a {
+        color: $text-color;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 1rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        border-top: 4px solid #ffffff;
+        font-weight: 500;
+        letter-spacing: 1px;
+
+        &:hover,
+        &.active {
+          background-color: $primary;
+          color: #ffffff;
+          border-color: $primary;
+        }
+
+        &.active {
+          border-color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .root {
+    min-height: 120px;
+    .navbar {
+      margin-bottom: 0;
+    }
+    .menu {
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .root {
+    box-shadow: none;
+    .menu {
+      display: none;
+    }
+    .mobile_menu {
+      display: block;
+      .collapse_icon {
+        margin-right: 10px;
+      }
+      .collapse_list {
+        display: flex;
+
+        ul {
+          width: 150px;
+          flex-direction: column;
+          margin-left: -100px;
+          margin-top: 25px;
+          z-index: 1;
+          background-color: lighten($primary, 10%);
+        }
+      }
+    }
+  }
+
+  .searchBox {
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
   }
 }

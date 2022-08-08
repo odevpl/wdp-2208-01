@@ -73,13 +73,17 @@
         background-color: $header-bg;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         font-size: 14px;
         color: $cartCounter-color;
         position: absolute;
         top: 50%;
         right: 0;
         transform: translate(50%, -50%);
+        .itemsAmount {
+          position: absolute;
+          transform: translate(0.6rem);
+        }
       }
 
       &:hover {
