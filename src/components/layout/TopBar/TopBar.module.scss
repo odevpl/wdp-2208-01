@@ -38,5 +38,11 @@
     .icon {
       margin-right: 5px;
     }
+    
+    .login, .register {
+      @media (max-width: 575.98px) {
+        display: none;
+      }
+    }
   }
 }

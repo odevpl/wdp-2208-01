@@ -1,0 +1,88 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin-bottom: 60px;
+
+  .panel {
+    margin-bottom: 30px;
+    position: relative;
+
+    :global(.row) > * {
+      border-bottom: 4px solid $feedback-border;
+    }
+
+    .heading {
+      position: relative;
+      width: 100%;
+
+      h3 {
+        color: $feedback-header-text;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 38px;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 45px;
+        border-bottom: 4px solid $feedback-border-bottom;
+      }
+    }
+
+    .dots {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      ul {
+        margin: 0;
+        padding: 0 0 0 1rem;
+        list-style: none;
+        background-color: $feedback-bg;
+        transform: translateY(15px);
+
+        li {
+          display: inline-block;
+          margin-left: 0.5rem;
+
+          a {
+            display: block;
+            width: 13px;
+            height: 13px;
+            border-radius: 6px;
+            background-color: $feedback-link;
+            font-size: 0;
+
+            &.active,
+            &:hover {
+              background-color: $primary
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    font-size: 14px;
+    color: $feedback-description;
+  }
+
+  .client {
+    img {
+      object-fit: cover;
+      width: 60px;
+      height: 60px;
+      border-radius: 5px;
+    }
+
+    .photoDescription {
+      font-size: 14px;
+    }
+  }
+}

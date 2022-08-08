@@ -96,6 +96,11 @@
     justify-content: space-between;
     align-items: center;
 
+    .buttonActive {
+      cursor: pointer;
+    }
+  }    
+
     .favorite {
       background-color: #2a2a2a;
       color: #fff;
@@ -105,7 +110,6 @@
       background-color: #2a2a2a;
       color: #fff;
     }
-  }
 
   .price {
     display: flex;
@@ -117,4 +121,3 @@
     }
   }
 }
-
