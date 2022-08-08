@@ -14,17 +14,30 @@ import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
 
-const ProductBox = ({ name, price, promo, stars, id, isFavorite }) => {
+const ProductBox = ({
+  name,
+  price,
+  promo,
+  stars,
+  id,
+  isFavorite,
+  compare,
+  oldPrice,
+}) => {
   const dispatch = useDispatch();
   const productId = id;
   const handleCLick = e => {
     e.preventDefault();
     dispatch(toggleProductFavorite(productId));
   };
-
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
+        <img
+          className={styles.image}
+          alt={name}
+          src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
+        />
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
@@ -52,17 +65,18 @@ const ProductBox = ({ name, price, promo, stars, id, isFavorite }) => {
         <div className={styles.outlines}>
           <Button
             variant='outline'
-            className={clsx(styles.buttonActive, isFavorite && styles.isActive)}
+            className={clsx(styles.buttonActive, isFavorite && styles.favorite)}
             onClick={handleCLick}
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline'>
+          <Button className={compare ? styles.compare : ''} variant='outline'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        <div>
-          <Button className={styles.price} noHover variant='small'>
+        <div className={styles.price}>
+          {oldPrice && <span className={styles.oldPrice + ' mx-1'}>$ {oldPrice}</span>}
+          <Button noHover variant='small'>
             $ {price}
           </Button>
         </div>
@@ -79,6 +93,8 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   id: PropTypes.string,
   isFavorite: PropTypes.bool,
+  compare: PropTypes.string,
+  oldPrice: PropTypes.number,
 };
 
 export default ProductBox;

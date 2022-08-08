@@ -11,7 +11,6 @@
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
     background: {
       color: $product-photo-bg;
       size: contain;
@@ -21,6 +20,11 @@
     overflow: hidden;
     align-items: flex-end;
 
+    .image {
+      object-fit: cover;
+      width: 280px;
+      height: 220px;
+    }
     .sale {
       position: absolute;
       top: -30px;
@@ -89,8 +93,24 @@
     .buttonActive {
       cursor: pointer;
     }
-    .isActive {
-      background: $primary;
+  }    
+    .favorite {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+
+    .compare {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+
+  .price {
+    display: flex;
+    align-items: center;
+    
+    .oldPrice {
+      text-decoration: line-through black;
+      color: #B5B5B5;
     }
   }
 }
