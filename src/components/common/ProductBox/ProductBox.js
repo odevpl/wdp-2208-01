@@ -25,7 +25,7 @@ const ProductBox = ({
   category,
 }) => {
   const comparesLength = useSelector(state => getCount(state));
-  console.log(comparesLength);
+
   const dispatch = useDispatch();
 
   const compareProduct = {
@@ -43,7 +43,6 @@ const ProductBox = ({
   const handleCLickCompare = e => {
     e.preventDefault();
     if (comparesLength < 4) {
-      console.log(comparesLength);
       dispatch(addProductToCompares(compareProduct));
     }
   };

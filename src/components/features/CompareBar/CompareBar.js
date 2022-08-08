@@ -19,5 +19,5 @@ const CompareBar = ({ comparesProducts }) => {
 export default CompareBar;
 
 CompareBar.propTypes = {
-  comparesProducts: PropTypes.object,
+  comparesProducts: PropTypes.array,
 };

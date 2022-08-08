@@ -1,12 +1,18 @@
 .stickyBar {
   position: sticky;
   bottom: 0;
+  display: flex;
+  justify-content: center;
 
   .productList {
     display: flex;
     flex-direction: row;
     list-style: none;
     background-color: #d58e32;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
     .photo {
       position: relative;
 
