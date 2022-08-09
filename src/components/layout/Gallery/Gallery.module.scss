@@ -31,6 +31,21 @@
   }
 }
 
+.categoryList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  justify-content: inherit;
+  .item {
+    text-transform: uppercase;
+    .button {
+      padding: 5px 27px 5px 27px;
+      text-transform: uppercase;
+    }
+  }
+}
+
 .photo {
   position: relative;
   background: {

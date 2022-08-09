@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getGalleryData } from '../../../redux/galleryRedux';
+import SaleOff from '../SaleOff/SaleOff';
 import styles from './Gallery.module.scss';
 
 const Gallery = () => {
@@ -8,7 +9,7 @@ const Gallery = () => {
 
   const [showFeatured, setShowFeatured] = useState(false);
   const [showTopSeller, setShowTopSeller] = useState(true);
-  const [showSaleOff, setShowSaleOff] = useState(false);
+  const [showSaleOff, setShowSaleOff] = useState(true);
   const [showTopRated, setShowTopRated] = useState(false);
 
   const handleChangeCategory = () => {
@@ -26,27 +27,17 @@ const Gallery = () => {
               </div>
             </div>
           </div>
-          <div className='category-container'>
-            {galleryData.categories.map(category => (
-              <a key={category.id} onClick={handleChangeCategory}>
-                {category.name}
-              </a>
-            ))}
-            {/* map category */}
-            <h2>name</h2>
-            <div className='img container'>
-              <img />
-              <button>heart</button>
-              <button>compare</button>
-              <button>watch</button>
-              <button>cart</button>
-              <div className='sale-price'></div>
-              <div className='product-cart'>
-                <h4>name</h4>
-                <div>rating</div>
-              </div>
-            </div>
-            <div className='thumbnail-slider'>photos</div>
+          <div className='category-container p-0'>
+            <ul className={styles.categoryList}>
+              {galleryData.categories.map(category => (
+                <li key={category.id} className={styles.item}>
+                  <button className={styles.button}>
+                    <a onClick={handleChangeCategory}>{category.name}</a>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {showSaleOff && <SaleOff />}
           </div>
         </div>
         <div className='right-section col-6'>
