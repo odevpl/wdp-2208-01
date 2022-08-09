@@ -10,7 +10,7 @@ const CompanyClaim = () => (
   <div className={styles.root}>
     <div className='container'>
       <div className={`row align-items-center ${styles.elements}`}>
-        <div className={`col-12 text-center col-md text-md-left ${styles.phoneNumber}`}>
+        <div className={`col-12 text-start col-md text-md-left ${styles.phoneNumber}`}>
           <p>
             <FontAwesomeIcon className={styles.icon} icon={faMobileAlt} /> 2300 - 3560 -
             222
@@ -21,7 +21,7 @@ const CompanyClaim = () => (
             <img src='/images/logo.png' alt='Bazar' />
           </a>
         </div>
-        <div className={`col text-right col-md ${styles.cart}`}>
+        <div className={`col text-end col-md ${styles.cart}`}>
           <a href='#' className={styles.cartBox}>
             <div className={styles.cartIcon}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
