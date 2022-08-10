@@ -1,15 +1,8 @@
 /* selectors */
-export const getAll = ({
-  products,
-}) => products;
-export const getCount = ({
-  products,
-}) => products.length;
-
-export const getNew = ({
-  products,
-}) =>
-  products.filter(item => item.newFurniture === true);
+export const getAll = ({ products }) => products;
+export const getCount = ({ products }) => products.length;
+export const getDealById = ({ deals }, dealId) => deals.find(deal => deal.id === dealId);
+export const getNew = ({ products }) => products.filter(item => item.newFurniture === true);
 
 
 // actions
