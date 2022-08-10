@@ -71,7 +71,7 @@ const ProductBox = ({
               {i <= stars ? (
                 <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
               ) : (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
               )}
             </a>
           ))}
