@@ -70,7 +70,7 @@ const MenuBar = ({ children }) => {
             )}
           </div>
           <div
-            className={` navbar-expand-md fixed col-auto navbar-default  ${styles.menu}`}
+            className={` navbar-expand-md fixed col-auto navbar-default align-items-stretch ${styles.menu}`}
           >
             <div className='align-items-stretch' id='mobile-menu'>
               <ul className=' navbar-nav mr-auto'>
