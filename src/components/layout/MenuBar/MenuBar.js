@@ -24,7 +24,7 @@ const MenuBar = ({ children }) => {
       <div className='container'>
         <div className='row align-items-center'>
           <div
-            className={`col order-first order-md-last order-xl-first ${styles.searchBox} `}
+            className={`col order-first order-md-last order-lg-first ${styles.searchBox} `}
           >
             <ProductSearch />
           </div>
