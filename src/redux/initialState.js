@@ -284,6 +284,7 @@ const initialState = {
   compares: {
     products: [],
   },
+  view: 'desktop',
 };
 
 export default initialState;

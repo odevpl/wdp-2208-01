@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../../common/Swipeable/Swipeable';
+import { connect } from 'react-redux';
+const mapStateToProps = state => ({
+  view: state.view,
+});
 
 class NewFurniture extends React.Component {
   state = {
@@ -19,16 +23,26 @@ class NewFurniture extends React.Component {
   }
 
   render() {
+    // items displayed on different devices
+    let itemsCount = 8;
+    if (this.props.view === 'mobile') {
+      itemsCount = 1;
+    } else if (this.props.view === 'tablet') {
+      itemsCount = 3;
+    } else {
+      itemsCount = 8;
+    }
+
     const { categories, products } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / itemsCount);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={String(i)}>
           <a
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
@@ -83,7 +97,7 @@ class NewFurniture extends React.Component {
             </div>
             <div className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
                 .map(item => (
                   <div key={item.id} className='col-3'>
                     <ProductBox {...item} />
@@ -116,6 +130,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  view: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {
@@ -123,4 +138,4 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-export default NewFurniture;
+export default connect(mapStateToProps)(NewFurniture);

@@ -5,13 +5,14 @@ import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 import comparesReducer from './comparesRedux';
-
+import viewReducer from './viewRedux';
 // define reducers
 const reducers = {
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
   compares: comparesReducer,
+  view: viewReducer,
 };
 
 // add blank reducers for initial state properties without reducers
