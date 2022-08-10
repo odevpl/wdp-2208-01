@@ -1,4 +1,4 @@
-import React, { startTransition } from 'react';
+import React, { startTransition, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,8 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import { toggleProductFavorite } from '../../../redux/productsRedux';
+import clsx from 'clsx';
 
 const ProductBox = ({
   name,
@@ -18,7 +20,7 @@ const ProductBox = ({
   promo,
   stars,
   id,
-  favorite,
+  isFavorite,
   compare,
   oldPrice,
   newFurniture,
@@ -28,13 +30,19 @@ const ProductBox = ({
 
   const dispatch = useDispatch();
 
+  const productId = id;
+  const handleCLick = e => {
+    e.preventDefault();
+    dispatch(toggleProductFavorite(productId));
+  };
+
   const compareProduct = {
     id: id,
     name: name,
     price: price,
     promo: promo,
     stars: stars,
-    favorite: favorite,
+    favorite: isFavorite,
     compare: compare,
     newFurniture: newFurniture,
     category: category,
@@ -80,7 +88,11 @@ const ProductBox = ({
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button className={favorite ? styles.favorite : ''} variant='outline'>
+          <Button
+            className={clsx(styles.buttonActive, isFavorite && styles.favorite)}
+            onClick={handleCLick}
+            variant='outline'
+          >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
@@ -108,7 +120,7 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-  favorite: PropTypes.string,
+  isFavorite: PropTypes.bool,
   compare: PropTypes.string,
   oldPrice: PropTypes.number,
   id: PropTypes.string,
