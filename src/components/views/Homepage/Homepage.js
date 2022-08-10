@@ -6,6 +6,7 @@ import styles from './Homepage.module.scss';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Gallery from '../../layout/Gallery/Gallery';
+import Feedback from '../../features/Feedback/Feedback';
 
 const Homepage = () => {
   return (
@@ -13,6 +14,7 @@ const Homepage = () => {
       <FeatureBoxes />
       <NewFurniture />
       <Gallery />
+      <Feedback />
     </div>
   );
 };

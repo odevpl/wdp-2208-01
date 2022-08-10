@@ -1,5 +1,6 @@
 import React, { startTransition, useState } from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,7 +13,6 @@ import Button from '../Button/Button';
 import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
-import clsx from 'clsx';
 
 const ProductBox = ({
   name,
@@ -100,6 +100,9 @@ const ProductBox = ({
             variant='outline'
             onClick={handleCLickCompare}
           >
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+          </Button>
+          <Button className={compare ? styles.compare : ''} variant='outline'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>

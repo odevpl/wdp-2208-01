@@ -89,18 +89,20 @@
     padding: 15px 10px 10px 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;   
-    
+    align-items: center;
+    .buttonActive {
+      cursor: pointer;
+    }
+  }    
     .favorite {
       background-color: #2a2a2a;
       color: #fff;
     }
-    
+
     .compare {
       background-color: #2a2a2a;
       color: #fff;
     }
-  }
 
   .price {
     display: flex;
@@ -112,4 +114,3 @@
     }
   }
 }
-
