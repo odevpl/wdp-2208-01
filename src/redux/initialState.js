@@ -399,17 +399,6 @@ const initialState = {
         favorite: true,
         compare: true,
       },
-      {
-        id: 'aenean-ru-bristique-10',
-        name: 'Aenean Ru Bristique 10',
-        category: 'bed',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-        favorite: false,
-        compare: false,
-      },
     ],
     saleOff: [
       {
