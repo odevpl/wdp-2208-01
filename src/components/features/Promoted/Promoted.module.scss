@@ -1,0 +1,280 @@
+@import "../../../styles/settings.scss";
+
+// general
+
+.root {
+  padding-top: 2rem;
+}
+
+// left column
+
+.leftColumn {
+  height: 500px;
+  width: 100%;
+
+  .headerLeftColumn {
+    background-color: $color-brown;
+    color: $color-light;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    .headerDots {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .headerDot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-left: 10px;
+        background-color: $color-light;
+        &.active {
+          background-color: $color-orange;
+        }
+
+        &:hover {
+          background-color: $color-orange;
+        }
+      }
+    }
+  }
+
+  .imageLeftColumn {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .imageLeft {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      position: absolute;
+    }
+
+    .imageLeftContent{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+
+      .addToCartBtn{
+        padding: 7px;
+        margin-bottom: 60px;
+        visibility: hidden;
+
+        a {
+          margin-left: 10px;
+        }
+      }
+
+      .imageDots{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        bottom: 10px;
+        visibility: hidden;
+
+        .imageDot {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-left: 10px;
+          padding-top: 10px;
+          background-color: $color-brown;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          text-transform: uppercase;
+          line-height: 1.2;
+          font-size: 12px;
+          color: $color-light;
+          &:hover {
+            background-color: $color-orange;
+          }
+          .imageDotNumber {
+            font-size: 22px;
+          }
+        }
+      }
+
+      &:hover .addToCartBtn {
+        cursor: pointer;
+        visibility: visible;
+      }
+
+      &:hover .imageDots {
+        cursor: pointer;
+        visibility: visible;
+      }
+    }
+  }
+
+  .descriptionLeftColumn {
+    height: 28%;
+    border: 1px solid $color-grey-880;
+    text-align: center;
+    padding: 10px;
+
+    h5 {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: $product-star-color;
+      }
+    }
+
+    .line {
+      margin: 15px 5px 5px 5px;
+      border-bottom: 1px solid $product-line-color;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        width: 30px;
+        border-bottom: 4px solid $primary;
+        transform: translateX(-50%);
+      }
+    }
+
+    .actions {
+      padding: 10px 10px 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .buttonActive {
+        cursor: pointer;
+      }
+    }
+      .favorite {
+        background-color: $color-grey-165;
+        color: $color-light;
+      }
+
+      .compare {
+        background-color: $color-grey-165;
+        color: $color-light;
+      }
+
+    .price {
+      display: flex;
+      align-items: center;
+
+      .oldPrice {
+        text-decoration: line-through $color-grey-165;
+        color: $color-grey-710;
+      }
+    }
+
+  }
+}
+
+// right column
+
+.rightColumn {
+  height: 500px;
+  width: 100%;
+
+  .imageRightColumn{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .imageRight {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      position: absolute;
+    }
+
+    .hero{
+      background-color: rgba(5, 3, 3, 0.3);
+      width: 100%;
+      height: 45%;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: $color-light;
+      z-index: 1;
+
+
+      h1{
+        font-size: 46px;
+        margin-top: 50px;
+        font-weight: 200;
+
+        span {
+          font-weight: 600;
+        }
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: 200;
+      }
+
+      .heroButton {
+        margin-top: 30px;
+        width: 150px;
+        height: 50px;
+        padding: 0;
+        border: none;
+        border-radius: 3px;
+        text-transform: uppercase;
+        &:hover {
+          background-color: $color-orange;
+          color: $color-light;
+        }
+      }
+    }
+  }
+
+  .imageArrows {
+    display: flex;
+    flex-direction: row;
+
+    .arrowLeft, .arrowRight{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 40px;
+      background-color: rgb(42, 42, 42);
+      color: $color-light;
+      padding: 0;
+      border: none;
+      &:hover {
+        background-color: $color-orange;
+      }
+    }
+  }
+}

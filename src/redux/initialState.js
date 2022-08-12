@@ -1,10 +1,25 @@
 const initialState = {
   categories: [
-    { id: 'bed', name: 'Bed' },
-    { id: 'chair', name: 'Chair' },
-    { id: 'sofa', name: 'Sofa' },
-    { id: 'table', name: 'Table' },
-    { id: 'dining', name: 'Dining' },
+    {
+      id: 'bed',
+      name: 'Bed',
+    },
+    {
+      id: 'chair',
+      name: 'Chair',
+    },
+    {
+      id: 'sofa',
+      name: 'Sofa',
+    },
+    {
+      id: 'table',
+      name: 'Table',
+    },
+    {
+      id: 'dining',
+      name: 'Dining',
+    },
   ],
   products: [
     {
@@ -14,6 +29,7 @@ const initialState = {
       price: 30,
       oldPrice: 50,
       stars: 2,
+      userStars: 3,
       promo: 'sale',
       newFurniture: true,
       isFavorite: true,
