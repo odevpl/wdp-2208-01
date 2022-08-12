@@ -9,6 +9,7 @@ import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
 import Stars from '../Stars/Stars';
+import { Link } from 'react-router-dom';
 
 const ProductBox = ({
   name,
@@ -30,11 +31,13 @@ const ProductBox = ({
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        <img
-          className={styles.image}
-          alt={name}
-          src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
-        />
+        <Link to={`/product/:${name}`}>
+          <img
+            className={styles.image}
+            alt={name}
+            src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
+          />
+        </Link>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
@@ -44,7 +47,9 @@ const ProductBox = ({
         </div>
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
+        <Link to={`/product/:${name}`}>
+          <h5>{name}</h5>
+        </Link>
         <Stars stars={stars} userStars={userStars} id={id} />
       </div>
       <div className={styles.line}></div>
