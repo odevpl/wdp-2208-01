@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getDealById } from '../../../redux/productsRedux';
+import { getDealById } from '../../../redux/dealsRedux';
 import styles from './Deals.module.scss';
 import clsx from 'clsx';
 
