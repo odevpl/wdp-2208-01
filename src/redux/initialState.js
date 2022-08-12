@@ -21,6 +21,7 @@ const initialState = {
       name: 'Dining',
     },
   ],
+
   products: [
     {
       id: 'aenean-ru-bristique-1',
@@ -381,30 +382,53 @@ const initialState = {
       isFavorite: false,
       compare: false,
     },
+
   ],
   cart: {},
-  feedback: [
-    {
-      id: 'client1',
-      name: 'John Doe',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique dolor sed enim efficitur posuere. Nullam blandit enim libero. Morbi eu ipsum ac justo semper semper a a neque. Fusce sodales tincidunt eleifend. Interdum et.',
-      image: 'src=../../images/feedback/client1.jpg',
-    },
-    {
-      id: 'client1',
-      name: 'Amanda Doom',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam lacinia sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec condimentum metus nec tellus eleifend finibus varius eget odio. Cras ut tortor.',
-      image: 'src=../../images/feedback/client2.jpg',
-    },
-    {
-      id: 'client1',
-      name: 'Scott Mad',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu luctus tortor, sed tempor enim. Mauris aliquam vel enim et laoreet. Quisque viverra euismod leo, ac accumsan lorem condimentum sit amet. Mauris ultrices diam sem.',
-      image: 'src=../../images/feedback/client3.jpg',
-    },
+  feedback: [{
+    id: 'client1',
+    name: 'John Doe',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique dolor sed enim efficitur posuere. Nullam blandit enim libero. Morbi eu ipsum ac justo semper semper a a neque. Fusce sodales tincidunt eleifend. Interdum et.',
+    image: 'src=../../images/feedback/client1.jpg',
+  },
+  {
+    id: 'client1',
+    name: 'Amanda Doom',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam lacinia sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec condimentum metus nec tellus eleifend finibus varius eget odio. Cras ut tortor.',
+    image: 'src=../../images/feedback/client2.jpg',
+  },
+  {
+    id: 'client1',
+    name: 'Scott Mad',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu luctus tortor, sed tempor enim. Mauris aliquam vel enim et laoreet. Quisque viverra euismod leo, ac accumsan lorem condimentum sit amet. Mauris ultrices diam sem.',
+    image: 'src=../../images/feedback/client3.jpg',
+  },
+  ],
+  deals: [{
+    id: 1,
+    name: 'sofa',
+    nameImg: 'deal1',
+    title: 'Guest room',
+    title2: 'sofa',
+    subtitle: '-20%',
+  },
+  {
+    id: 2,
+    name: 'chairs',
+    nameImg: 'deal2',
+    title: 'Office',
+    title2: 'Chair',
+    title3: 'Collection',
+    subtitle: '$200.00',
+  },
+  {
+    id: 3,
+    name: 'bed',
+    nameImg: 'deal3',
+    title: 'Special',
+    title2: 'Collection',
+    subtitle: 'Save up 45% of furniture',
+  },
   ],
   compares: {
     products: [],
