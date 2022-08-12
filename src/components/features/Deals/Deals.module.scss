@@ -1,0 +1,114 @@
+@import "../../../styles/settings.scss";
+
+.main{
+  margin-bottom: 3%;
+
+  .dealOne, .dealTwo, .dealThree {
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+  }
+  .img{
+    object-fit: cover;
+  }
+  .description {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dealOne{
+    &::after{
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 90%;
+      background-color: $color-black;
+      position: absolute;
+    }
+    .description{
+      color: $color-light;
+      left: 8%;
+      z-index: 1;
+      font-weight: 600;
+      .title{
+        font-size: 30px;
+        margin: 0;
+      }
+      .titleTwo{
+        font-size: 50px;
+        font-weight: 700;
+      }
+      p{
+        font-size: 40px;
+        width: 60%;
+        text-align: center;
+        border: 4px solid $color-light;
+      }
+    }
+  }
+
+  .dealTwo{
+    background-color: #F0F8FF;
+    height: 200px;
+    margin-bottom: 5%;
+    font-size: 30px;
+    
+    .description{ 
+      left: 40%;
+      .title{
+        font-weight: 700;
+        display: inline;
+        margin: 0;
+      }
+      .titleTwo{
+        display: inline;
+        font-weight: normal;
+        margin-left: 3%;
+      }
+      .titleThree{
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+      p{
+        color: $color-orange;
+        font-weight: 600;
+        font-size: 35px;
+        margin: 0;
+      }
+    }
+  }
+
+  .dealThree{
+    background-color: #FFF5EE;
+    height: 200px;
+    .img{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .description{ 
+      color: $primary;
+      .title{
+        display: inline;
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .titleTwo{
+        display: inline;
+        font-weight: normal;
+        font-size: 25px;
+        margin-left: 3%;
+      }
+      p{
+        margin: 0;
+        color: #000;
+      }
+    }
+  }
+}
