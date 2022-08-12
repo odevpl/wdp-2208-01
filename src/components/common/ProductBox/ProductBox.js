@@ -31,7 +31,7 @@ const ProductBox = ({
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        <Link to={`/product/:${name}`}>
+        <Link to={`/product/${name}`}>
           <img
             className={styles.image}
             alt={name}
@@ -47,7 +47,7 @@ const ProductBox = ({
         </div>
       </div>
       <div className={styles.content}>
-        <Link to={`/product/:${name}`}>
+        <Link to={`/product/${name}`}>
           <h5>{name}</h5>
         </Link>
         <Stars stars={stars} userStars={userStars} id={id} />
