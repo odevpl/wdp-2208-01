@@ -10,6 +10,7 @@ import Feedback from '../../features/Feedback/Feedback';
 import Deals from '../../features/Deals/Deals';
 
 
+
 const Homepage = () => (
   <div className={styles.root}>
     <Promoted />
@@ -19,6 +20,7 @@ const Homepage = () => (
     <Feedback />
   </div>
 );
+
 
 // Homepage.propTypes = {};
 

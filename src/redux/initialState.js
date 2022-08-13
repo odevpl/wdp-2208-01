@@ -397,6 +397,7 @@ const initialState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam lacinia sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec condimentum metus nec tellus eleifend finibus varius eget odio. Cras ut tortor.',
     image: 'src=../../images/feedback/client2.jpg',
   },
+
   {
     id: 'client1',
     name: 'Scott Mad',
@@ -430,9 +431,7 @@ const initialState = {
     subtitle: 'Save up 45% of furniture',
   },
   ],
-  compares: {
-    products: [],
-  },
+ compares: [],
 };
 
 export default initialState;
