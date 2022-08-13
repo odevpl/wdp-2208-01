@@ -9,7 +9,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
-import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
+import {
+  addProductToCompares,
+  getComparesCount,
+  getCount,
+} from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductBox = ({
@@ -24,8 +28,7 @@ const ProductBox = ({
   newFurniture,
   category,
 }) => {
-  const comparesLength = useSelector(state => getCount(state));
-  console.log(comparesLength);
+  const comparesLength = useSelector(state => getComparesCount(state));
   const dispatch = useDispatch();
 
   const compareProduct = {
@@ -43,7 +46,6 @@ const ProductBox = ({
   const handleCLickCompare = e => {
     e.preventDefault();
     if (comparesLength < 4) {
-      console.log(comparesLength);
       dispatch(addProductToCompares(compareProduct));
     }
   };
@@ -110,7 +112,7 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   favorite: PropTypes.string,
-  compare: PropTypes.string,
+  compare: PropTypes.bool,
   oldPrice: PropTypes.number,
   id: PropTypes.string,
   newFurniture: PropTypes.bool,
