@@ -51,7 +51,7 @@ const Promoted = () => {
                 <div className={styles.imageLeftContent}>
                   <Button variant='small' className={styles.addToCartBtn}>
                     <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
-                    <a>ADD TO CART</a>
+                    <span>ADD TO CART</span>
                   </Button>
                   <div className={styles.imageDots}>
                     <div className={styles.imageDot}>

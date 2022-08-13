@@ -28,11 +28,9 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-
     const { categories, products, compares } = this.props;
 
     const { activeCategory, activePage, fade } = this.state;
-
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -42,10 +40,10 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={(i === activePage && styles.active) || ''}
           >
             page {i}
           </a>
@@ -66,7 +64,6 @@ class NewFurniture extends React.Component {
       }
     };
     return (
-
       <div>
         <Swipeable rightAction={rightAction} leftAction={leftAction}>
           <div className={styles.root}>
@@ -81,7 +78,9 @@ class NewFurniture extends React.Component {
                       {categories.map(item => (
                         <li key={item.id}>
                           <a
-                            className={item.id === activeCategory && styles.active}
+                            className={
+                              (item.id === activeCategory && styles.active) || ''
+                            }
                             onClick={() => this.handleCategoryChange(item.id)}
                           >
                             {item.name}
@@ -104,8 +103,6 @@ class NewFurniture extends React.Component {
                     </div>
                   ))}
               </div>
-
-
             </div>
           </div>
         </Swipeable>
