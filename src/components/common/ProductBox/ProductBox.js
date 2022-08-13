@@ -1,20 +1,23 @@
-import React, { startTransition } from 'react';
+
+import React, { useState, startTransition  } from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
+
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStar,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+
 import {
   addProductToCompares,
   getComparesCount,
   getCount,
 } from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import { toggleProductFavorite } from '../../../redux/productsRedux';
+import Stars from '../Stars/Stars';
+
 
 const ProductBox = ({
   name,
@@ -22,8 +25,9 @@ const ProductBox = ({
   promo,
   stars,
   id,
-  favorite,
+  isFavorite,
   compare,
+  userStars,
   oldPrice,
   newFurniture,
   category,
@@ -50,6 +54,15 @@ const ProductBox = ({
     }
   };
 
+
+}) => {
+  const dispatch = useDispatch();
+  const productId = id;
+  const handleCLick = e => {
+    e.preventDefault();
+    dispatch(toggleProductFavorite(productId));
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -65,20 +78,11 @@ const ProductBox = ({
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
+
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-        <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
+<Stars stars={stars} userStars={userStars} id={id} />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
@@ -91,6 +95,7 @@ const ProductBox = ({
             variant='outline'
             onClick={handleCLickCompare}
           >
+
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -111,8 +116,13 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-  favorite: PropTypes.string,
+
   compare: PropTypes.bool,
+
+  isFavorite: PropTypes.bool,
+  userStars: PropTypes.number,
+  compare: PropTypes.string,
+
   oldPrice: PropTypes.number,
   id: PropTypes.string,
   newFurniture: PropTypes.bool,

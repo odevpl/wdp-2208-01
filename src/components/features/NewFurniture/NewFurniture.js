@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import clsx from 'clsx';
+import scssVariables from '../../../styles/settings.scss';
 import Swipeable from '../../common/Swipeable/Swipeable';
 import CompareBar from '../CompareBar/CompareBar';
 
@@ -9,10 +12,15 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    fade: true,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({ fade: false });
+    setTimeout(() => {
+      this.setState({ activePage: newPage });
+      this.setState({ fade: true });
+    }, parseInt(scssVariables.fadeTime));
   }
 
   handleCategoryChange(newCategory) {
@@ -20,9 +28,11 @@ class NewFurniture extends React.Component {
   }
 
   render() {
+
     const { categories, products, compares } = this.props;
 
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, fade } = this.state;
+
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -42,22 +52,21 @@ class NewFurniture extends React.Component {
         </li>
       );
     }
-
     const leftAction = () => {
-      this.setState({ activePage: activePage + 1 });
+      this.handlePageChange(activePage + 1);
       if (activePage >= pagesCount - 1) {
-        this.setState({ activePage: activePage });
+        this.handlePageChange(activePage);
       }
     };
 
     const rightAction = () => {
-      this.setState({ activePage: activePage - 1 });
+      this.handlePageChange(activePage - 1);
       if (activePage <= 0) {
-        this.setState({ activePage: activePage });
+        this.handlePageChange(activePage);
       }
     };
-
     return (
+
       <div>
         <Swipeable rightAction={rightAction} leftAction={leftAction}>
           <div className={styles.root}>
@@ -95,6 +104,8 @@ class NewFurniture extends React.Component {
                     </div>
                   ))}
               </div>
+
+
             </div>
           </div>
         </Swipeable>

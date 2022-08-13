@@ -15,7 +15,7 @@
       a {
         color: $text-color-light;
         font-size: 13px;
-
+        transition: $transition;
         &:hover {
           color: $primary;
           text-decoration: none;
@@ -37,6 +37,12 @@
 
     .icon {
       margin-right: 5px;
+    }
+    
+    .login, .register {
+      @media (max-width: 575.98px) {
+        display: none;
+      }
     }
   }
 }

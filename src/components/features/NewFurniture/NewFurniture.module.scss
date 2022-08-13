@@ -37,6 +37,9 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        @media (max-width: 768px) {
+          margin-top: 1rem;
+        }
         li {
           display: inline-block;
           margin: 0 0.5rem;
@@ -98,4 +101,18 @@
       }
     }
   }
+}
+.fadeIn {
+  animation: fadein $fade-time;
+}
+.fadeOut {
+  animation: fadeOut $fade-time;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
