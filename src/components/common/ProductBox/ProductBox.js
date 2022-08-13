@@ -1,5 +1,4 @@
-
-import React, { useState, startTransition  } from 'react';
+import React, { useState, startTransition } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
@@ -17,7 +16,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
 import Stars from '../Stars/Stars';
-
 
 const ProductBox = ({
   name,
@@ -41,7 +39,7 @@ const ProductBox = ({
     price: price,
     promo: promo,
     stars: stars,
-    favorite: favorite,
+    favorite: isFavorite,
     compare: compare,
     newFurniture: newFurniture,
     category: category,
@@ -54,9 +52,6 @@ const ProductBox = ({
     }
   };
 
-
-}) => {
-  const dispatch = useDispatch();
   const productId = id;
   const handleCLick = e => {
     e.preventDefault();
@@ -78,16 +73,15 @@ const ProductBox = ({
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
-
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-<Stars stars={stars} userStars={userStars} id={id} />
+        <Stars stars={stars} userStars={userStars} id={id} />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button className={favorite ? styles.favorite : ''} variant='outline'>
+          <Button className={isFavorite ? styles.favorite : ''} variant='outline'>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
@@ -95,7 +89,6 @@ const ProductBox = ({
             variant='outline'
             onClick={handleCLickCompare}
           >
-
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -116,13 +109,9 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-
   compare: PropTypes.bool,
-
   isFavorite: PropTypes.bool,
   userStars: PropTypes.number,
-  compare: PropTypes.string,
-
   oldPrice: PropTypes.number,
   id: PropTypes.string,
   newFurniture: PropTypes.bool,
