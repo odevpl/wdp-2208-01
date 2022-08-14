@@ -403,6 +403,9 @@ const initialState = {
       image: 'src=../../images/feedback/client3.jpg',
     },
   ],
+
+  view: 'desktop',
+
   deals: [{
       id: 1,
       name: 'sofa',
@@ -487,6 +490,7 @@ const initialState = {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
   ],
+
 };
 
 export default initialState;
