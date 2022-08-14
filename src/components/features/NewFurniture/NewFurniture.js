@@ -12,9 +12,6 @@ const mapStateToProps = state => ({
   view: state.view,
 });
 
-
-
-
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -35,14 +32,11 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-
-    
-
     const { categories, products, compares, showNav, num, isOrange } = this.props;
-    const { activeCategory, activePage, fade } = this.state;
-    
+    const { activeCategory, activePage } = this.state;
+
     // items displayed on different devices
-    let itemsCount = num;
+    let itemsCount;
     if (this.props.view === 'mobile') {
       itemsCount = 1;
     } else if (this.props.view === 'tablet') {
@@ -59,9 +53,7 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-
         <li key={i}>
-
           <a
             onClick={() => this.handlePageChange(i)}
             className={clsx(
@@ -128,16 +120,15 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
 
-            </div>
-            <div className='row'>
-              {categoryProducts
-                .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
-                .map(item => (
-                  <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
-                    <ProductBox {...item} />
-                  </div>
-                ))}
-
+              <div className='row'>
+                {categoryProducts
+                  .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
+                  .map(item => (
+                    <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
+                      <ProductBox {...item} />
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </Swipeable>
