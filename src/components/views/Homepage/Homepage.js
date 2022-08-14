@@ -8,18 +8,16 @@ import Feedback from '../../features/Feedback/Feedback';
 import Deals from '../../features/Deals/Deals';
 import Blog from '../../features/Blog/Blog';
 
-
 const Homepage = () => (
   <div className={styles.root}>
     <Promoted />
     <FeatureBoxes />
     <Deals />
-    <NewFurniture />
+    <NewFurniture num={8} showNav={true} isOrange={true} />
     <Blog />
     <Feedback />
   </div>
 );
-
 
 // Homepage.propTypes = {};
 
