@@ -28,7 +28,7 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products, compares } = this.props;
+    const { categories, products, compares, showNav, num, isOrange } = this.props;
 
     const { activeCategory, activePage, fade } = this.state;
 
@@ -43,13 +43,17 @@ class NewFurniture extends React.Component {
         <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={(i === activePage && styles.active) || ''}
+            className={clsx(
+              (i === activePage && styles.active) || '',
+              isOrange ? styles.orange : ''
+            )}
           >
             page {i}
           </a>
         </li>
       );
     }
+
     const leftAction = () => {
       this.handlePageChange(activePage + 1);
       if (activePage >= pagesCount - 1) {
@@ -70,24 +74,32 @@ class NewFurniture extends React.Component {
             <div className='container'>
               <div className={styles.panelBar}>
                 <div className='row no-gutters align-items-end'>
-                  <div className={'col-auto ' + styles.heading}>
+                  <div
+                    className={clsx(
+                      'col-auto',
+                      styles.heading,
+                      isOrange ? styles.orange : ''
+                    )}
+                  >
                     <h3>New furniture</h3>
                   </div>
                   <div className={'col ' + styles.menu}>
-                    <ul>
-                      {categories.map(item => (
-                        <li key={item.id}>
-                          <a
-                            className={
-                              (item.id === activeCategory && styles.active) || ''
-                            }
-                            onClick={() => this.handleCategoryChange(item.id)}
-                          >
-                            {item.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
+                    {showNav === true && (
+                      <ul>
+                        {categories.map(item => (
+                          <li key={item.id}>
+                            <a
+                              className={
+                                (item.id === activeCategory && styles.active) || ''
+                              }
+                              onClick={() => this.handleCategoryChange(item.id)}
+                            >
+                              {item.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                   <div className={'col-auto ' + styles.dots}>
                     <ul>{dots}</ul>
@@ -96,7 +108,7 @@ class NewFurniture extends React.Component {
               </div>
               <div className='row'>
                 {categoryProducts
-                  .slice(activePage * 8, (activePage + 1) * 8)
+                  .slice(activePage * num, (activePage + 1) * num)
                   .map(item => (
                     <div key={item.id} className='col-3'>
                       <ProductBox {...item} />
@@ -116,6 +128,9 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
+  num: PropTypes.number,
+  isOrange: PropTypes.bool,
+  showNav: PropTypes.bool,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
