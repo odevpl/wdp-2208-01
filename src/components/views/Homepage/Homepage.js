@@ -8,8 +8,7 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../features/Feedback/Feedback';
 import Deals from '../../features/Deals/Deals';
-
-
+import ChatBot from '../../features/ChatBot/ChatBot';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -18,9 +17,9 @@ const Homepage = () => (
     <Deals />
     <NewFurniture />
     <Feedback />
+    <ChatBot />
   </div>
 );
-
 
 // Homepage.propTypes = {};
 

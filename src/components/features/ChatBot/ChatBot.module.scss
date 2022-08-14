@@ -1,0 +1,23 @@
+.chatbot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.active {
+  display: block;
+}
+.inactive {
+  display: none;
+}
+.activationBtn {
+  &:hover{
+    cursor: pointer;
+  }
+}
+.sendBtn {
+  &:hover{
+    cursor: pointer;
+  }
+}
