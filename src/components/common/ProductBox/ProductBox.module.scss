@@ -93,23 +93,9 @@
     }
   }    
 
-    .favorite {
-      background-color: #2a2a2a;
-      color: #fff;
-    }
-
     .compare {
       background-color: #2a2a2a;
       color: #fff;
     }
 
-  .price {
-    display: flex;
-    align-items: center;
-    
-    .oldPrice {
-      text-decoration: line-through black;
-      color: #B5B5B5;
-    }
-  }
 }

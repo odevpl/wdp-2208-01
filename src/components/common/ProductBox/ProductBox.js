@@ -16,6 +16,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
 import Stars from '../Stars/Stars';
+import FavoriteHeart from '../FavoriteHeart/FavoriteHeart';
+import PriceButton from '../PriceButton/PriceButton';
 
 const ProductBox = ({
   name,
@@ -81,9 +83,7 @@ const ProductBox = ({
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button className={isFavorite ? styles.favorite : ''} variant='outline'>
-            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-          </Button>
+          <FavoriteHeart isFavorite={isFavorite} />
           <Button
             className={compare ? styles.compare : ''}
             variant='outline'
@@ -92,12 +92,7 @@ const ProductBox = ({
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        <div className={styles.price}>
-          {oldPrice && <span className={styles.oldPrice + ' mx-1'}>$ {oldPrice}</span>}
-          <Button noHover variant='small'>
-            $ {price}
-          </Button>
-        </div>
+        <PriceButton price={price} oldPrice={oldPrice} />
       </div>
     </div>
   );
