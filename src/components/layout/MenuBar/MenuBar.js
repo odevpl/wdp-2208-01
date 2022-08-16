@@ -5,7 +5,7 @@ import ProductSearch from '../../features/ProductSearch/ProductSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './MenuBar.module.scss';
 import { faBars, faHamburger } from '@fortawesome/free-solid-svg-icons';
-// import { Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const MenuBar = ({ children }) => {
   const [show, setShow] = useState(false);
