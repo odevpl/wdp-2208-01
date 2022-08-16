@@ -6,6 +6,7 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../features/Feedback/Feedback';
 import Deals from '../../features/Deals/Deals';
+import ChatBot from '../../features/ChatBot/ChatBot';
 import Blog from '../../features/Blog/Blog';
 
 const Homepage = () => (
@@ -16,6 +17,7 @@ const Homepage = () => (
     <NewFurniture num={8} showNav={true} isOrange={true} />
     <Blog />
     <Feedback />
+    <ChatBot />
   </div>
 );
 
