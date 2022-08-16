@@ -1,0 +1,39 @@
+.description {
+  display: flex;
+}
+.icon {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+.photo {
+  position: relative;
+
+  .iconClose {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    z-index: 1;
+    text-align: center;
+    display: none;
+
+    justify-content: center;
+  }
+  &:hover {
+    .iconClose {
+      display: flex;
+    }
+  }
+  img {
+    object-fit: cover;
+    width: 150px;
+    height: 120px;
+  }
+}
+.name {
+  max-width: 150px;
+  word-wrap: break-word;
+}
