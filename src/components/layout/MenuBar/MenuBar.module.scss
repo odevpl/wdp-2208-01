@@ -22,7 +22,6 @@
         display: flex;
         align-items: stretch;
 
-        
         .menuLink {
           color: $text-color;
           text-transform: uppercase;
@@ -47,7 +46,6 @@
             border-color: $text-color;
           }
         }
-
       }
     }
   }
@@ -59,6 +57,7 @@
     .collapse_list {
       display: none;
       position: absolute;
+      z-index: 2;
 
       ul {
         margin: 0;
