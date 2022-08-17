@@ -21,6 +21,7 @@
         list-style: none;
         display: flex;
         align-items: stretch;
+
         
         .menuLink {
           color: $text-color;
@@ -46,6 +47,7 @@
             border-color: $text-color;
           }
         }
+
       }
     }
   }
@@ -97,7 +99,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 990px) {
   .root {
     min-height: 120px;
     .navbar {
@@ -106,6 +108,9 @@
     .menu {
       margin-bottom: 10px;
       margin-left: 0;
+      ul li {
+        height: 64px;
+      }
     }
   }
 }
@@ -118,6 +123,7 @@
     }
     .mobile_menu {
       display: block;
+      width: 18%;
       .collapse_icon {
         margin-right: 10px;
       }

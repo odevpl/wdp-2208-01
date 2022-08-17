@@ -7,6 +7,11 @@ import productsReducer from './productsRedux';
 import feedbackReducer from './feedbackRedux';
 import comparesReducer from './comparesRedux';
 
+import viewReducer from './viewRedux';
+
+import dealsReducer from './dealsRedux';
+import blogReducer from './blogRedux';
+
 // define reducers
 const reducers = {
   cart: cartReducer,
@@ -14,6 +19,10 @@ const reducers = {
   products: productsReducer,
   feedback: feedbackReducer,
   compares: comparesReducer,
+  view: viewReducer,
+  deals: dealsReducer,
+  blog: blogReducer,
+
 };
 
 // add blank reducers for initial state properties without reducers

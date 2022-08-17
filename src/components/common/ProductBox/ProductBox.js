@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+
+import React, { useState, startTransition } from 'react';
+
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import styles from './ProductBox.module.scss';
@@ -6,10 +8,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
-import { useDispatch } from 'react-redux';
+
+
+import {
+  addProductToCompares,
+  getComparesCount,
+  getCount,
+} from '../../../redux/comparesRedux';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
 import Stars from '../Stars/Stars';
 import { Link } from 'react-router-dom';
+import FavoriteHeart from '../FavoriteHeart/FavoriteHeart';
+import PriceButton from '../PriceButton/PriceButton';
+
 
 const ProductBox = ({
   name,
@@ -21,13 +34,41 @@ const ProductBox = ({
   compare,
   userStars,
   oldPrice,
+  newFurniture,
+  category,
 }) => {
+
+  const comparesLength = useSelector(state => getComparesCount(state));
   const dispatch = useDispatch();
+
+  const compareProduct = {
+    id: id,
+    name: name,
+    price: price,
+    promo: promo,
+    stars: stars,
+    favorite: isFavorite,
+    compare: compare,
+    newFurniture: newFurniture,
+    category: category,
+  };
+
+  const handleCLickCompare = e => {
+    e.preventDefault();
+    if (comparesLength < 4) {
+      dispatch(addProductToCompares(compareProduct));
+    }
+  };
+
+
   const productId = id;
   const handleCLick = e => {
     e.preventDefault();
     dispatch(toggleProductFavorite(productId));
   };
+
+
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -55,23 +96,25 @@ const ProductBox = ({
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
+          <FavoriteHeart isFavorite={isFavorite} />
           <Button
-            variant='outline'
+
             className={clsx(styles.buttonActive, isFavorite && styles.favorite)}
             onClick={handleCLick}
+            variant='outline'
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button className={compare ? styles.compare : ''} variant='outline'>
+          <Button
+
+            className={compare ? styles.compare : ''}
+            variant='outline'
+            onClick={handleCLickCompare}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        <div className={styles.price}>
-          {oldPrice && <span className={styles.oldPrice + ' mx-1'}>$ {oldPrice}</span>}
-          <Button noHover variant='small'>
-            $ {price}
-          </Button>
-        </div>
+        <PriceButton price={price} oldPrice={oldPrice} />
       </div>
     </div>
   );
@@ -83,11 +126,13 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-  id: PropTypes.string,
+  compare: PropTypes.bool,
   isFavorite: PropTypes.bool,
   userStars: PropTypes.number,
-  compare: PropTypes.string,
   oldPrice: PropTypes.number,
+  id: PropTypes.string,
+  newFurniture: PropTypes.bool,
+  category: PropTypes.string,
 };
 
 export default ProductBox;

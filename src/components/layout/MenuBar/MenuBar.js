@@ -24,7 +24,7 @@ const MenuBar = ({ children }) => {
       <div className='container'>
         <div className='row align-items-center'>
           <div
-            className={`col order-first order-md-last order-xl-first ${styles.searchBox} `}
+            className={`col order-first order-md-last order-lg-first ${styles.searchBox} `}
           >
             <ProductSearch />
           </div>
@@ -88,7 +88,7 @@ const MenuBar = ({ children }) => {
             )}
           </div>
           <div
-            className={` navbar-expand-md fixed col-auto navbar-default  ${styles.menu}`}
+            className={` navbar-expand-md fixed col-auto navbar-default align-items-stretch ${styles.menu}`}
           >
             <div className='align-items-stretch' id='mobile-menu'>
               <ul className=' navbar-nav mr-auto'>

@@ -1,23 +1,41 @@
 /* selectors */
-export const getCount = ({ compares }) => compares.products.length;
+
+export const getComparesCount = ({ compares }) => compares.length;
+
+export const getCompares = ({ compares }) => compares;
 
 /* action name creator */
 const reducerName = 'compares';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
-const ADD_PRODUCT = createActionName('ADD_PRODUCT');
+const ADD_PRODUCT_TO_COMPARES = createActionName('ADD_PRODUCT_TO_COMPARES');
+const REMOVE_PRODUCT_FROM_COMPARES = createActionName('REMOVE_PRODUCT_FROM_COMPARES');
 
 /* action creators */
-export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
+export const addProductToCompares = payload => ({
+  payload,
+  type: ADD_PRODUCT_TO_COMPARES,
+});
 
-const comparesReducer = (statePart = [], action) => {
+export const removeProductFromCompares = payload => ({
+  payload,
+  type: REMOVE_PRODUCT_FROM_COMPARES,
+});
+
+export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case ADD_PRODUCT:
-      statePart.map();
+    case ADD_PRODUCT_TO_COMPARES: {
+      if (!statePart.find(compare => compare.id === action.payload.id))
+        return [...statePart, { ...action.payload }];
+      {
+        return statePart;
+      }
+    }
+    case REMOVE_PRODUCT_FROM_COMPARES:
+      return statePart.filter(compare => compare.id !== action.payload);
+
     default:
       return statePart;
   }
-};
-
-export default comparesReducer;
+}
