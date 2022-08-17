@@ -2,10 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
 import { useDispatch } from 'react-redux';
-import styles from '../../features/CompareBar/CompareBar.module.scss';
+
+import styles from './CompareBox.module.scss';
 import React from 'react';
 import { removeProductFromCompares } from '../../../redux/comparesRedux';
 import PropTypes from 'prop-types';
+import FavoriteHeart from '../FavoriteHeart/FavoriteHeart';
+import PriceButton from '../PriceButton/PriceButton';
+
 
 const CompareBox = ({ product }) => {
   const dispatch = useDispatch();
@@ -31,9 +35,17 @@ const CompareBox = ({ product }) => {
         </Button>
       </div>
 
-      <Button variant='outline' className={styles.icon}>
-        <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-      </Button>
+      <div className={styles.description}>
+        <Button variant='outline' className={styles.icon}>
+          <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+        </Button>
+        <FavoriteHeart isFavorite={product.favorite} />
+        <PriceButton price={product.price} oldPrice={product.oldPrice} />
+      </div>
+      <p className={styles.name}>
+        <span>{product.name}</span>
+      </p>
+
     </li>
   );
 };

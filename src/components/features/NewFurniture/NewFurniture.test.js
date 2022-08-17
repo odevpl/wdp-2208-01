@@ -4,6 +4,9 @@ import NewFurniture from './NewFurniture';
 import { Provider } from 'react-redux';
 import store from '../../../redux/store';
 
+import { Provider } from 'react-redux';
+import store from '../../../redux/store';
+
 describe('Component NewFurniture', () => {
   it('should render without crashing', () => {
     const component = shallow(
@@ -11,6 +14,7 @@ describe('Component NewFurniture', () => {
         <NewFurniture />
       </Provider>
     );
+
     expect(component).toBeTruthy();
   });
 });

@@ -10,6 +10,7 @@
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+  transition: $transition;
 
   &:not(.noHover):hover {
     color: $text-color-light !important;
@@ -33,6 +34,7 @@
   color: $text-color;
   font-size: 13px;
   line-height: 22px;
+  transition: $transition;
 
   &:not(.noHover):hover {
     background-color: $button-bg-dark;

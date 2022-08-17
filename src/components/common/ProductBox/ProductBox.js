@@ -1,18 +1,26 @@
-import React, { startTransition, useState } from 'react';
+
+import React, { useState, startTransition } from 'react';
+
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStar,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
-import { addProductToCompares, getCount } from '../../../redux/comparesRedux';
+
+
+import {
+  addProductToCompares,
+  getComparesCount,
+  getCount,
+} from '../../../redux/comparesRedux';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
+import Stars from '../Stars/Stars';
+import FavoriteHeart from '../FavoriteHeart/FavoriteHeart';
+import PriceButton from '../PriceButton/PriceButton';
 
 const ProductBox = ({
   name,
@@ -22,19 +30,14 @@ const ProductBox = ({
   id,
   isFavorite,
   compare,
+  userStars,
   oldPrice,
   newFurniture,
   category,
 }) => {
-  const comparesLength = useSelector(state => getCount(state));
 
+  const comparesLength = useSelector(state => getComparesCount(state));
   const dispatch = useDispatch();
-
-  const productId = id;
-  const handleCLick = e => {
-    e.preventDefault();
-    dispatch(toggleProductFavorite(productId));
-  };
 
   const compareProduct = {
     id: id,
@@ -55,6 +58,15 @@ const ProductBox = ({
     }
   };
 
+
+  const productId = id;
+  const handleCLick = e => {
+    e.preventDefault();
+    dispatch(toggleProductFavorite(productId));
+  };
+
+
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -73,22 +85,14 @@ const ProductBox = ({
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-        <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
+        <Stars stars={stars} userStars={userStars} id={id} />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
+          <FavoriteHeart isFavorite={isFavorite} />
           <Button
+
             className={clsx(styles.buttonActive, isFavorite && styles.favorite)}
             onClick={handleCLick}
             variant='outline'
@@ -96,22 +100,15 @@ const ProductBox = ({
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
+
             className={compare ? styles.compare : ''}
             variant='outline'
             onClick={handleCLickCompare}
           >
-            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-          </Button>
-          <Button className={compare ? styles.compare : ''} variant='outline'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        <div className={styles.price}>
-          {oldPrice && <span className={styles.oldPrice + ' mx-1'}>$ {oldPrice}</span>}
-          <Button noHover variant='small'>
-            $ {price}
-          </Button>
-        </div>
+        <PriceButton price={price} oldPrice={oldPrice} />
       </div>
     </div>
   );
@@ -123,8 +120,9 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  compare: PropTypes.bool,
   isFavorite: PropTypes.bool,
-  compare: PropTypes.string,
+  userStars: PropTypes.number,
   oldPrice: PropTypes.number,
   id: PropTypes.string,
   newFurniture: PropTypes.bool,

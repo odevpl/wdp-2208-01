@@ -12,10 +12,11 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
   });
   return <div {...handlers}>{children}</div>;
 };
-export default Swipeable;
 
 Swipeable.propTypes = {
   children: PropTypes.node,
   leftAction: PropTypes.func,
   rightAction: PropTypes.func,
 };
+
+export default Swipeable;
