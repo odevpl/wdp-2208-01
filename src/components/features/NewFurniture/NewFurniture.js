@@ -7,10 +7,12 @@ import clsx from 'clsx';
 import scssVariables from '../../../styles/settings.scss';
 import Swipeable from '../../common/Swipeable/Swipeable';
 import CompareBar from '../CompareBar/CompareBar';
+
 import { connect } from 'react-redux';
 const mapStateToProps = state => ({
   view: state.view,
 });
+
 
 class NewFurniture extends React.Component {
   state = {
@@ -32,7 +34,9 @@ class NewFurniture extends React.Component {
   }
 
   render() {
+
     const { categories, products, compares, showNav, num, isOrange } = this.props;
+
     const { activeCategory, activePage } = this.state;
 
     // items displayed on different devices
@@ -47,6 +51,8 @@ class NewFurniture extends React.Component {
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / itemsCount);
+
+    const comparesProducts = compares;
 
     const comparesProducts = compares;
 
@@ -87,6 +93,7 @@ class NewFurniture extends React.Component {
             <div className='container'>
               <div className={styles.panelBar}>
                 <div className='row no-gutters align-items-end'>
+
                   <div
                     className={clsx(
                       'col-auto',
@@ -113,6 +120,7 @@ class NewFurniture extends React.Component {
                         ))}
                       </ul>
                     )}
+
                   </div>
                   <div className={'col-auto ' + styles.dots}>
                     <ul>{dots}</ul>
@@ -120,9 +128,11 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
 
+
               <div className='row'>
                 {categoryProducts
                   .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
+
                   .map(item => (
                     <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
                       <ProductBox {...item} />
