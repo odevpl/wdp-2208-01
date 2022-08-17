@@ -12,7 +12,7 @@ const Deals = () => {
   return (
     <div className={clsx('container', styles.main)}>
       <div className='row'>
-        <div className='col-6'>
+        <div className='col-md-6 col-12'>
           <div className={styles.dealOne}>
             <div className={styles.image}>
               <img
@@ -29,7 +29,7 @@ const Deals = () => {
           </div>
         </div>
 
-        <div className='col-6'>
+        <div className='col-md-6 col-12'>
           <div className={styles.dealTwo}>
             <div className={styles.small}>
               <img
