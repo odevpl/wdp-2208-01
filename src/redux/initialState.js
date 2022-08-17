@@ -1,5 +1,6 @@
 const initialState = {
-  categories: [{
+  categories: [
+    {
       id: 'bed',
       name: 'Bed',
     },
@@ -21,7 +22,8 @@ const initialState = {
     },
   ],
 
-  products: [{
+  products: [
+    {
       id: 'aenean-ru-bristique-1',
       name: 'Aenean Ru Bristique 1',
       category: 'chair',
@@ -43,7 +45,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: false,
+      isFavorite: true,
       compare: false,
     },
     {
@@ -380,7 +382,6 @@ const initialState = {
       isFavorite: false,
       compare: false,
     },
-
   ],
 
   compares: [],
@@ -674,41 +675,55 @@ const initialState = {
       },
     ],
     categories: [
-      { id: 'featured', name: 'Featured' },
-      { id: 'topSeller', name: 'Top Seller' },
-      { id: 'saleOff', name: 'Sale Off' },
-      { id: 'topRated', name: 'Top Rated' },
+      {
+        id: 'featured',
+        name: 'Featured',
+      },
+      {
+        id: 'topSeller',
+        name: 'Top Seller',
+      },
+      {
+        id: 'saleOff',
+        name: 'Sale Off',
+      },
+      {
+        id: 'topRated',
+        name: 'Top Rated',
+      },
     ],
   },
 
-
   cart: {},
-  feedback: [{
-
+  feedback: [
+    {
       id: 'client1',
       name: 'John Doe',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique dolor sed enim efficitur posuere. Nullam blandit enim libero. Morbi eu ipsum ac justo semper semper a a neque. Fusce sodales tincidunt eleifend. Interdum et.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique dolor sed enim efficitur posuere. Nullam blandit enim libero. Morbi eu ipsum ac justo semper semper a a neque. Fusce sodales tincidunt eleifend. Interdum et.',
       image: 'src=../../images/feedback/client1.jpg',
     },
     {
       id: 'client1',
       name: 'Amanda Doom',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam lacinia sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec condimentum metus nec tellus eleifend finibus varius eget odio. Cras ut tortor.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam lacinia sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec condimentum metus nec tellus eleifend finibus varius eget odio. Cras ut tortor.',
       image: 'src=../../images/feedback/client2.jpg',
     },
 
     {
       id: 'client1',
       name: 'Scott Mad',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu luctus tortor, sed tempor enim. Mauris aliquam vel enim et laoreet. Quisque viverra euismod leo, ac accumsan lorem condimentum sit amet. Mauris ultrices diam sem.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu luctus tortor, sed tempor enim. Mauris aliquam vel enim et laoreet. Quisque viverra euismod leo, ac accumsan lorem condimentum sit amet. Mauris ultrices diam sem.',
       image: 'src=../../images/feedback/client3.jpg',
     },
   ],
 
-
   view: 'desktop',
 
-  deals: [{
+  deals: [
+    {
       id: 1,
       name: 'sofa',
       nameImg: 'deal1',
@@ -734,14 +749,16 @@ const initialState = {
       subtitle: 'Save up 45% of furniture',
     },
   ],
-  
-  blog: [{
+
+  blog: [
+    {
       id: 1,
       name: 'blog',
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
     {
       id: 2,
@@ -749,7 +766,8 @@ const initialState = {
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
     {
       id: 3,
@@ -757,7 +775,8 @@ const initialState = {
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
     {
       id: 4,
@@ -765,7 +784,8 @@ const initialState = {
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
     {
       id: 5,
@@ -773,7 +793,8 @@ const initialState = {
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
     {
       id: 6,
@@ -781,7 +802,8 @@ const initialState = {
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
     {
       id: 7,
@@ -789,11 +811,10 @@ const initialState = {
       date: '15 JAN 2016',
       comments: '4',
       title: 'Products That Fight Static',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
   ],
-
-
 };
 
 export default initialState;
