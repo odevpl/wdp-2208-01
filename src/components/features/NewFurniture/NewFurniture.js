@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import clsx from 'clsx';
 import scssVariables from '../../../styles/settings.scss';
 import Swipeable from '../../common/Swipeable/Swipeable';
 import CompareBar from '../CompareBar/CompareBar';
-
 import { connect } from 'react-redux';
+
 const mapStateToProps = state => ({
   view: state.view,
 });

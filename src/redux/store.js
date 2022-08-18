@@ -22,7 +22,6 @@ const reducers = {
   view: viewReducer,
   deals: dealsReducer,
   blog: blogReducer,
-
 };
 
 // add blank reducers for initial state properties without reducers
