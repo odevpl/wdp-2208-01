@@ -24,9 +24,7 @@ export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case TOGGLE_PRODUCT_FAVORITE:
       return statePart.map(product =>
-        product.id === action.payload
-          ? { ...product, isFavorite: !product.isFavorite }
-          : product
+        product.id === action.payload.id ? { ...product, ...action.payload } : product
       );
     case UPDATE_PRODUCT_RATE:
       return statePart.map(product =>

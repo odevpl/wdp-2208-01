@@ -57,6 +57,7 @@
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
@@ -64,7 +65,8 @@
     "react-slick": "^0.29.0",
     "react-swipeable": "^7.0.0",
     "react-test-renderer": "^16.9.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "use-local-storage": "^2.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -75,11 +77,9 @@
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
     "redux-devtools-extension": "^2.13.8",
-
     "sass": "^1.54.3"
   },
   "resolutions": {
     "react-scripts/**/react-error-overlay": "6.0.9"
-
   }
 }

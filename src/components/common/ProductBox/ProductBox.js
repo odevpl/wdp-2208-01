@@ -1,5 +1,4 @@
-import React, { useState, startTransition } from 'react';
-
+import React, { useState, startTransition, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
 import clsx from 'clsx';
@@ -11,23 +10,17 @@ import {
   faSearch,
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-
 import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-
 import Button from '../Button/Button';
-import {
-  addProductToCompares,
-  getComparesCount,
-} from '../../../redux/comparesRedux';
-
+import { addProductToCompares, getComparesCount } from '../../../redux/comparesRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import Stars from '../Stars/Stars';
 import { Link } from 'react-router-dom';
-import FavoriteHeart from '../FavoriteHeart/FavoriteHeart';
 import PriceButton from '../PriceButton/PriceButton';
+import useLocalStorage from 'use-local-storage';
 
 const ProductBox = ({
   name,
@@ -72,9 +65,16 @@ const ProductBox = ({
     setShow(false);
   };
 
+  const [isFav, setIsFav] = useLocalStorage(productId, isFavorite || false);
+
+  useEffect(() => {
+    dispatch(toggleProductFavorite({ id: productId, isFavorite: isFav }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFav]);
+
   const handleCLick = e => {
     e.preventDefault();
-    dispatch(toggleProductFavorite(productId));
+    setIsFav(!isFav);
   };
 
   const handleCLickCompare = e => {
@@ -96,7 +96,9 @@ const ProductBox = ({
         </Link>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
-          <Button variant='small' onClick={handleShow}>Quick View</Button>
+          <Button variant='small' onClick={handleShow}>
+            Quick View
+          </Button>
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
@@ -112,13 +114,11 @@ const ProductBox = ({
       <div className={styles.actions}>
         <div className={styles.outlines}>
           <Button
-            className={clsx(styles.buttonActive, isFavorite && styles.favorite)}
+            className={clsx(styles.buttonActive, isFav ? styles.favorite : '')}
             onClick={handleCLick}
             variant='outline'
           >
-            <FontAwesomeIcon isFavorite={isFavorite} icon={faHeart}>
-              Favorite
-            </FontAwesomeIcon>
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
             className={compare ? styles.compare : ''}
@@ -217,9 +217,7 @@ ProductBox.propTypes = {
   isFavorite: PropTypes.bool,
   userStars: PropTypes.number,
   oldPrice: PropTypes.number,
-  id: PropTypes.string,
   newFurniture: PropTypes.bool,
-  category: PropTypes.string,
 };
 
 export default ProductBox;
