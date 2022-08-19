@@ -9,7 +9,7 @@ import Feedback from '../../features/Feedback/Feedback';
 import Deals from '../../features/Deals/Deals';
 import ChatBot from '../../features/ChatBot/ChatBot';
 import Blog from '../../features/Blog/Blog';
-
+import BrandsBar from '../../layout/BrandsBar/BrandsBar';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -19,11 +19,11 @@ const Homepage = () => (
     <NewFurniture num={8} showNav={true} isOrange={true} />
     <Blog />
     <Gallery />
+    <BrandsBar />
     <Feedback />
     <ChatBot />
   </div>
 );
-
 
 // Homepage.propTypes = {};
 
