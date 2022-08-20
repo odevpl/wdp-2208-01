@@ -18,10 +18,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 import Button from '../Button/Button';
-import {
-  addProductToCompares,
-  getComparesCount,
-} from '../../../redux/comparesRedux';
+import { addProductToCompares, getComparesCount } from '../../../redux/comparesRedux';
 
 import { useDispatch, useSelector } from 'react-redux';
 import Stars from '../Stars/Stars';
@@ -96,7 +93,9 @@ const ProductBox = ({
         </Link>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
-          <Button variant='small' onClick={handleShow}>Quick View</Button>
+          <Button variant='small' onClick={handleShow}>
+            Quick View
+          </Button>
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>

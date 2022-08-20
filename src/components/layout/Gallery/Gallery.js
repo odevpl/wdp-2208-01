@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getGalleryData } from '../../../redux/galleryRedux';
+import {
+  getGalleryProducts,
+  getGalleryTypes,
+} from '../../../redux/galleryProductsRedux';
 import styles from './Gallery.module.scss';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,25 +16,25 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
+import Stars from '../../common/Stars/Stars';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 const Gallery = () => {
-  const galleryData = useSelector(state => getGalleryData(state));
-  const [selectedThumb, setSelectedThumb] = useState(galleryData.products[0].name);
-  console.log(selectedThumb);
+  const galleryProducts = useSelector(state => getGalleryProducts(state));
+  const galleryTypes = useSelector(state => getGalleryTypes(state));
+  const [selectedThumb, setSelectedThumb] = useState(galleryProducts[0]);
 
-  const [selectedType, setSelectedType] = useState(galleryData.types[0].id);
+  const [selectedType, setSelectedType] = useState(galleryTypes[0].id);
 
   const handleTypeChange = category => {
     setSelectedType(category);
     console.log(selectedType);
-    setSelectedThumb(
-      galleryData.products.find(product => product.type === category).name
-    );
+    setSelectedThumb(galleryProducts.find(product => product.type === category));
   };
 
-  const typeProducts = galleryData.products.filter(
-    product => product.type === selectedType
-  );
+  const typeProducts = galleryProducts.filter(product => product.type === selectedType);
 
   return (
     <div className={styles.root}>
@@ -47,7 +50,7 @@ const Gallery = () => {
             </div>
             <div className={`${styles.categoryContainer} category-container p-0`}>
               <ul className={styles.categoryList}>
-                {galleryData.types.map(category => (
+                {galleryTypes.map(category => (
                   <li
                     key={category.id}
                     onClick={() => handleTypeChange(category.id)}
@@ -64,7 +67,7 @@ const Gallery = () => {
 
               <div className={styles.imageContainer}>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images/products/${selectedThumb}.jpg`}
+                  src={`${process.env.PUBLIC_URL}/images/products/${selectedThumb.name}.jpg`}
                 />
                 <div className={styles.buttons}>
                   <Button variant='outline' className={styles.actionButton}>
@@ -83,19 +86,22 @@ const Gallery = () => {
 
                 <div className={styles.productInfo}>
                   <div className={styles.sale}>
-                    <h4>$120.00</h4>
-                    <h5>
-                      $<span>160.00</span>
-                    </h5>
+                    <h4>${selectedThumb.price}</h4>
+                    {selectedThumb.oldPrice && (
+                      <h5>
+                        $<span>{selectedThumb.oldPrice}</span>
+                      </h5>
+                    )}
                   </div>
                   <div className={styles.productCart}>
-                    <p>Aenean Ru Bristique</p>
+                    <p>{selectedThumb.name}</p>
                     <div>
-                      <FontAwesomeIcon icon={faStar}> stars</FontAwesomeIcon>
-                      <FontAwesomeIcon icon={faStar}> stars</FontAwesomeIcon>
-                      <FontAwesomeIcon icon={farStar}> stars</FontAwesomeIcon>
-                      <FontAwesomeIcon icon={farStar}> stars</FontAwesomeIcon>
-                      <FontAwesomeIcon icon={farStar}> stars</FontAwesomeIcon>
+                      <Stars
+                        stars={selectedThumb.stars}
+                        userStars={selectedThumb.userStars}
+                        id={selectedThumb.id}
+                        gallery={true}
+                      />
                     </div>
                   </div>
                 </div>
@@ -114,7 +120,7 @@ const Gallery = () => {
                     className={`${styles.imageThumbnail} ${
                       product.name === selectedThumb ? styles.active : ''
                     }`}
-                    onClick={() => setSelectedThumb(product.name)}
+                    onClick={() => setSelectedThumb(product)}
                     src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
                   />
                 ))}
