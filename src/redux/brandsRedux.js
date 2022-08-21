@@ -1,5 +1,5 @@
 //selectors
-export const getAllBrands = ({ brands }) => brands;
+export const getAll = ({ brands }) => brands;
 
 // actions
 //const createActionName = actionName => `app/brands/${actionName}`;
