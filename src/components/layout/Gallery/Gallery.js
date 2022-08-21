@@ -7,21 +7,17 @@ import {
 import styles from './Gallery.module.scss';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import {
   faEye,
   faExchangeAlt,
   faShoppingBasket,
-  faStar,
-  faChevronLeft,
-  faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import Stars from '../../common/Stars/Stars';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import './GallerySlider.css';
-import scssVariables from '../../../styles/settings.scss';
 
 const Gallery = () => {
   const galleryProducts = useSelector(state => getGalleryProducts(state));
@@ -175,25 +171,7 @@ const Gallery = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className={styles.slider}>
-                <Button className={styles.buttonLeftArrow}>
-                  <FontAwesomeIcon
-                    icon={faChevronLeft}
-                    className={styles.icon}
-                  ></FontAwesomeIcon>
-                </Button> */}
                 <div className='gallerySlider'>
-                  {/* {typeProducts.map(product => (
-                  <img
-                    key={product.id}
-                    className={`${styles.imageThumbnail} ${
-                      product.name === selectedThumb ? styles.active : ''
-                    }`}
-                    onClick={() => setSelectedThumb(product)}
-                    src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
-                  />
-                ))} */}
                   <div className={styles.slider}>
                     <Slider {...settings}>
                       {typeProducts.map(product => (
@@ -211,25 +189,6 @@ const Gallery = () => {
                     </Slider>
                   </div>
                 </div>
-
-                {/* {selectedCategory === 'featured' &&
-                  galleryData.featured.map(product => (
-                    <img
-                      key={product.id}
-                      className={`${styles.imageThumbnail} ${
-                        product.id === selectedThumb ? styles.active : ''
-                      }`}
-                      onClick={() => setSelectedThumb(product.id)}
-                      src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
-                    />
-                  ))} */}
-                {/* <Button className={styles.buttonRightArrow}>
-                  <FontAwesomeIcon
-                    icon={faChevronRight}
-                    className={styles.icon}
-                  ></FontAwesomeIcon>
-                </Button>
-              </div> */}
               </div>
             </div>
           </div>
