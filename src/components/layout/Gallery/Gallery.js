@@ -20,21 +20,75 @@ import Stars from '../../common/Stars/Stars';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
+import './GallerySlider.css';
+import scssVariables from '../../../styles/settings.scss';
 
 const Gallery = () => {
   const galleryProducts = useSelector(state => getGalleryProducts(state));
   const galleryTypes = useSelector(state => getGalleryTypes(state));
   const [selectedThumb, setSelectedThumb] = useState(galleryProducts[0]);
 
+  const [fade, setFade] = useState(true);
+
+  console.log(selectedThumb);
+
   const [selectedType, setSelectedType] = useState(galleryTypes[0].id);
 
   const handleTypeChange = category => {
-    setSelectedType(category);
-    console.log(selectedType);
-    setSelectedThumb(galleryProducts.find(product => product.type === category));
+    setFade(false);
+    setTimeout(() => {
+      setSelectedType(category);
+      setSelectedThumb(galleryProducts.find(product => product.type === category));
+      setFade(true);
+    }, parseInt(scssVariables.fadeTime));
   };
 
   const typeProducts = galleryProducts.filter(product => product.type === selectedType);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className={styles.root}>
@@ -95,26 +149,25 @@ const Gallery = () => {
                   </div>
                   <div className={styles.productCart}>
                     <p>{selectedThumb.name}</p>
-                    <div>
-                      <Stars
-                        stars={selectedThumb.stars}
-                        userStars={selectedThumb.userStars}
-                        id={selectedThumb.id}
-                        gallery={true}
-                      />
-                    </div>
+                    <Stars
+                      stars={selectedThumb.stars}
+                      userStars={selectedThumb.userStars}
+                      id={selectedThumb.id}
+                      gallery={true}
+                    />
                   </div>
                 </div>
               </div>
-              <div className={styles.slider}>
+
+              {/* <div className={styles.slider}>
                 <Button className={styles.buttonLeftArrow}>
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     className={styles.icon}
                   ></FontAwesomeIcon>
-                </Button>
-
-                {typeProducts.map(product => (
+                </Button> */}
+              <div className='gallerySlider'>
+                {/* {typeProducts.map(product => (
                   <img
                     key={product.id}
                     className={`${styles.imageThumbnail} ${
@@ -123,8 +176,25 @@ const Gallery = () => {
                     onClick={() => setSelectedThumb(product)}
                     src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
                   />
-                ))}
-                {/* {selectedCategory === 'featured' &&
+                ))} */}
+
+                <Slider {...settings}>
+                  {typeProducts.map(product => (
+                    <a
+                      key={product.id}
+                      className={product === selectedThumb ? 'active' : ''}
+                    >
+                      <img
+                        key={product.id}
+                        onClick={() => setSelectedThumb(product)}
+                        src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
+                      />
+                    </a>
+                  ))}
+                </Slider>
+              </div>
+
+              {/* {selectedCategory === 'featured' &&
                   galleryData.featured.map(product => (
                     <img
                       key={product.id}
@@ -135,13 +205,13 @@ const Gallery = () => {
                       src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
                     />
                   ))} */}
-                <Button className={styles.buttonRightArrow}>
+              {/* <Button className={styles.buttonRightArrow}>
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     className={styles.icon}
                   ></FontAwesomeIcon>
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={`right-section col-6 ${styles.section}`}>
