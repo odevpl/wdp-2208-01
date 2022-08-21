@@ -28,19 +28,19 @@ const Gallery = () => {
   const galleryTypes = useSelector(state => getGalleryTypes(state));
   const [selectedThumb, setSelectedThumb] = useState(galleryProducts[0]);
 
-  const [fade, setFade] = useState(true);
+  const [fade, setFade] = useState({ fadeStyle: styles.fadeIn });
 
   console.log(selectedThumb);
 
   const [selectedType, setSelectedType] = useState(galleryTypes[0].id);
 
   const handleTypeChange = category => {
-    setFade(false);
+    setFade({ fadeStyle: styles.fadeOut });
     setTimeout(() => {
+      setFade({ fadeStyle: styles.fadeIn });
       setSelectedType(category);
       setSelectedThumb(galleryProducts.find(product => product.type === category));
-      setFade(true);
-    }, parseInt(scssVariables.fadeTime));
+    }, 1000);
   };
 
   const typeProducts = galleryProducts.filter(product => product.type === selectedType);
@@ -52,6 +52,13 @@ const Gallery = () => {
     slidesToShow: 6,
     slidesToScroll: 6,
     responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 6,
+        },
+      },
       {
         breakpoint: 1200,
         settings: {
@@ -177,21 +184,22 @@ const Gallery = () => {
                     src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
                   />
                 ))} */}
-
-                <Slider {...settings}>
-                  {typeProducts.map(product => (
-                    <a
-                      key={product.id}
-                      className={product === selectedThumb ? 'active' : ''}
-                    >
-                      <img
+                <div className={styles.slider}>
+                  <Slider {...settings}>
+                    {typeProducts.map(product => (
+                      <a
                         key={product.id}
-                        onClick={() => setSelectedThumb(product)}
-                        src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
-                      />
-                    </a>
-                  ))}
-                </Slider>
+                        className={product === selectedThumb ? 'active' : ''}
+                      >
+                        <img
+                          key={product.id}
+                          onClick={() => setSelectedThumb(product)}
+                          src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
+                        />
+                      </a>
+                    ))}
+                  </Slider>
+                </div>
               </div>
 
               {/* {selectedCategory === 'featured' &&

@@ -16,6 +16,7 @@
 
 .gallerySlider .slick-active {
   outline: none;
+  animation: fadeIn 2s;
 }
 
 .gallerySlider .slick-slide a {
@@ -40,6 +41,7 @@
   width: 70px;
   height: 70px;
   border: none;
+  animation: fadeIn 2s;
 }
 
 .gallerySlider .slick-slider.slick-initialized .slick-arrow.slick-prev {
@@ -67,9 +69,6 @@
   
 }
 
-.gallerySlider .slick-slider.slick-initialized .slick-arrow.slick-prev :hover {
-  color: #d58e32;
-}
 
 .gallerySlider .slick-slider.slick-initialized .slick-prev::before {
   content: "";
@@ -117,9 +116,14 @@
   margin-right: 3px;
 }
 
-.gallerySlider .activeSlide {
-  animation: fadeIn 1s;
+.fadeIn {
+  animation: fadein 2s;
 }
+.fadeOut {
+  animation: fadeOut 2s;
+}
+
+
 
 @media (max-width: 374px) {
   .gallerySlider .slick-slider .slick-list {
@@ -148,6 +152,34 @@
   .gallerySlider .slick-slider .slick-list {
     width: 85%;
     margin-left: -2px;
+  }
+
+}
+
+@media (min-width: 1280px){
+  .gallerySlider .slick-slider.slick-initialized .slick-arrow.slick-prev {
+    font-size: 0;
+    line-height: 0;
+    z-index: 1;
+  
+    position: absolute;
+    top: 40px;
+    left: 5px;
+    display: block;
+  
+    width: 25px;
+    height: 70px;
+    padding: 0;
+    transform: 0;
+  
+    cursor: pointer;
+  
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #2a2a2a;
+  
+    
   }
 }
 @media (min-width: 1440px) {
