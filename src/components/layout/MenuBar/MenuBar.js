@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import clsx from 'clsx';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './MenuBar.module.scss';
@@ -24,7 +24,7 @@ const MenuBar = ({ children }) => {
       <div className='container'>
         <div className='row align-items-center'>
           <div
-            className={`col order-first order-md-last order-xl-first ${styles.searchBox} `}
+            className={`col order-first order-md-last order-lg-first ${styles.searchBox} `}
           >
             <ProductSearch />
           </div>
@@ -43,59 +43,89 @@ const MenuBar = ({ children }) => {
               >
                 <ul className='navbar-nav mr-auto'>
                   <li className='nav-item'>
-                    <a href='#' className={styles.active}>
+                    <Link
+                      to={'/'}
+                      className={clsx(styles.menuMobileLink, styles.active)}
+                    >
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a href='#'>Furniture</a>
+                    <Link
+                      to={'/shop/furniture'}
+                      className={clsx(styles.menuMobileLink)}
+                    >
+                      Furniture
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a href='#'>Chair</a>
+                    <Link to={'/shop/chair'} className={clsx(styles.menuMobileLink)}>
+                      Chair
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a href='#'>Table</a>
+                    <Link to={'/shop/table'} className={clsx(styles.menuMobileLink)}>
+                      Table
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a href='#'>Sofa</a>
+                    <Link to={'/shop/sofa'} className={clsx(styles.menuMobileLink)}>
+                      Sofa
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a href='#'>Bedroom</a>
+                    <Link to={'/shop/bedroom'} className={clsx(styles.menuMobileLink)}>
+                      Bedroom
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a href='#'>Blog</a>
+                    <Link to={'/blog'} className={clsx(styles.menuMobileLink)}>
+                      Blog
+                    </Link>
                   </li>
                 </ul>
               </div>
             )}
           </div>
           <div
-            className={` navbar-expand-md fixed col-auto navbar-default  ${styles.menu}`}
+            className={` navbar-expand-md fixed col-auto navbar-default align-items-stretch ${styles.menu}`}
           >
             <div className='align-items-stretch' id='mobile-menu'>
               <ul className=' navbar-nav mr-auto'>
                 <li className='nav-item'>
-                  <a href='#' className={styles.active}>
+                  <Link to={'/'} className={clsx(styles.menuLink, styles.active)}>
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href='#'>Furniture</a>
+                  <Link to={'/shop/furniture'} className={clsx(styles.menuLink)}>
+                    Furniture
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href='#'>Chair</a>
+                  <Link to={'/shop/chair'} className={clsx(styles.menuLink)}>
+                    Chair
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href='#'>Table</a>
+                  <Link to={'/shop/table'} className={clsx(styles.menuLink)}>
+                    Table
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href='#'>Sofa</a>
+                  <Link to={'/shop/sofa'} className={clsx(styles.menuLink)}>
+                    Sofa
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href='#'>Bedroom</a>
+                  <Link to={'/shop/bedroom'} className={clsx(styles.menuLink)}>
+                    Bedroom
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href='#'>Blog</a>
+                  <Link to={'/blog'} className={clsx(styles.menuLink)}>
+                    Blog
+                  </Link>
                 </li>
               </ul>
             </div>

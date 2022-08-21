@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import clsx from 'clsx';
@@ -8,6 +7,7 @@ import scssVariables from '../../../styles/settings.scss';
 import Swipeable from '../../common/Swipeable/Swipeable';
 import CompareBar from '../CompareBar/CompareBar';
 import { connect } from 'react-redux';
+
 const mapStateToProps = state => ({
   view: state.view,
 });
@@ -33,6 +33,7 @@ class NewFurniture extends React.Component {
 
   render() {
     const { categories, products, compares, showNav, num, isOrange } = this.props;
+
     const { activeCategory, activePage } = this.state;
 
     // items displayed on different devices
@@ -123,6 +124,7 @@ class NewFurniture extends React.Component {
               <div className='row'>
                 {categoryProducts
                   .slice(activePage * itemsCount, (activePage + 1) * itemsCount)
+
                   .map(item => (
                     <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
                       <ProductBox {...item} />

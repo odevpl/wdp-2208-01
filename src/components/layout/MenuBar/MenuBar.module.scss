@@ -21,30 +21,31 @@
         list-style: none;
         display: flex;
         align-items: stretch;
-      }
-    }
 
-    a {
-      color: $text-color;
-      text-transform: uppercase;
-      font-size: 12px;
-      padding: 1rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      border-top: 4px solid $menuBar-border-color;
-      font-weight: 500;
-      letter-spacing: 1px;
-      transition: $transition;
-      &:hover,
-      &.active {
-        background-color: $primary;
-        color: $text-color-light;
-        border-color: $primary;
-      }
+        .menuLink {
+          color: $text-color;
+          text-transform: uppercase;
+          font-size: 12px;
+          padding: 1rem;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          border-top: 4px solid $menuBar-border-color;
+          font-weight: 500;
+          letter-spacing: 1px;
+          transition: $transition;
 
-      &.active {
-        border-color: $text-color;
+          &:hover,
+          &.active {
+            background-color: $primary;
+            color: $text-color-light;
+            border-color: $primary;
+          }
+
+          &.active {
+            border-color: $text-color;
+          }
+        }
       }
     }
   }
@@ -56,6 +57,7 @@
     .collapse_list {
       display: none;
       position: absolute;
+      z-index: 2;
 
       ul {
         margin: 0;
@@ -69,7 +71,7 @@
         }
       }
 
-      a {
+      .menuMobileLink {
         color: $text-color;
         text-transform: uppercase;
         font-size: 12px;
@@ -96,7 +98,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 990px) {
   .root {
     min-height: 120px;
     .navbar {
@@ -105,6 +107,9 @@
     .menu {
       margin-bottom: 10px;
       margin-left: 0;
+      ul li {
+        height: 64px;
+      }
     }
   }
 }
@@ -117,6 +122,7 @@
     }
     .mobile_menu {
       display: block;
+      width: 18%;
       .collapse_icon {
         margin-right: 10px;
       }

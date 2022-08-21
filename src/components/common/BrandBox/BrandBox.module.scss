@@ -1,0 +1,20 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin: auto;
+
+  .box {
+    width: 140px;
+    height: 90px;
+    border: solid 1px $brandBox-border;
+
+    img {
+      width: 100px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
