@@ -28,18 +28,27 @@ const Gallery = () => {
   const galleryTypes = useSelector(state => getGalleryTypes(state));
   const [selectedThumb, setSelectedThumb] = useState(galleryProducts[0]);
 
-  const [fade, setFade] = useState({ fadeStyle: styles.fadeIn });
+  const [fadeCategory, setFadeCategory] = useState(styles.fadeIn);
+  const [fadeImage, setFadeImage] = useState(styles.fadeIn);
 
   console.log(selectedThumb);
 
   const [selectedType, setSelectedType] = useState(galleryTypes[0].id);
 
   const handleTypeChange = category => {
-    setFade({ fadeStyle: styles.fadeOut });
+    setFadeCategory(styles.fadeOut);
     setTimeout(() => {
-      setFade({ fadeStyle: styles.fadeIn });
+      setFadeCategory(styles.fadeIn);
       setSelectedType(category);
       setSelectedThumb(galleryProducts.find(product => product.type === category));
+    }, 1000);
+  };
+
+  const handleClickThumb = product => {
+    setFadeImage(styles.fadeOut);
+    setTimeout(() => {
+      setSelectedThumb(product);
+      setFadeImage(styles.fadeIn);
     }, 1000);
   };
 
@@ -109,7 +118,7 @@ const Gallery = () => {
                 </div>
               </div>
             </div>
-            <div className={`${styles.categoryContainer} category-container p-0`}>
+            <div className={`${styles.categoryContainer} category-container p-0 `}>
               <ul className={styles.categoryList}>
                 {galleryTypes.map(category => (
                   <li
@@ -125,56 +134,57 @@ const Gallery = () => {
                   </li>
                 ))}
               </ul>
+              <div className={fadeCategory}>
+                <div className={`${styles.imageContainer}`}>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/products/${selectedThumb.name}.jpg`}
+                    className={fadeImage}
+                  />
+                  <div className={styles.buttons}>
+                    <Button variant='outline' className={styles.actionButton}>
+                      <FontAwesomeIcon icon={faHeart} />
+                    </Button>
+                    <Button variant='outline' className={styles.actionButton}>
+                      <FontAwesomeIcon icon={faExchangeAlt} />
+                    </Button>
+                    <Button variant='outline' className={styles.actionButton}>
+                      <FontAwesomeIcon icon={faEye} />
+                    </Button>
+                    <Button variant='outline' className={styles.actionButton}>
+                      <FontAwesomeIcon icon={faShoppingBasket} />
+                    </Button>
+                  </div>
 
-              <div className={styles.imageContainer}>
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/products/${selectedThumb.name}.jpg`}
-                />
-                <div className={styles.buttons}>
-                  <Button variant='outline' className={styles.actionButton}>
-                    <FontAwesomeIcon icon={faHeart} />
-                  </Button>
-                  <Button variant='outline' className={styles.actionButton}>
-                    <FontAwesomeIcon icon={faExchangeAlt} />
-                  </Button>
-                  <Button variant='outline' className={styles.actionButton}>
-                    <FontAwesomeIcon icon={faEye} />
-                  </Button>
-                  <Button variant='outline' className={styles.actionButton}>
-                    <FontAwesomeIcon icon={faShoppingBasket} />
-                  </Button>
+                  <div className={styles.productInfo}>
+                    <div className={styles.sale}>
+                      <h4>${selectedThumb.price}</h4>
+                      {selectedThumb.oldPrice && (
+                        <h5>
+                          $<span>{selectedThumb.oldPrice}</span>
+                        </h5>
+                      )}
+                    </div>
+                    <div className={styles.productCart}>
+                      <p>{selectedThumb.name}</p>
+                      <Stars
+                        stars={selectedThumb.stars}
+                        userStars={selectedThumb.userStars}
+                        id={selectedThumb.id}
+                        gallery={true}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className={styles.productInfo}>
-                  <div className={styles.sale}>
-                    <h4>${selectedThumb.price}</h4>
-                    {selectedThumb.oldPrice && (
-                      <h5>
-                        $<span>{selectedThumb.oldPrice}</span>
-                      </h5>
-                    )}
-                  </div>
-                  <div className={styles.productCart}>
-                    <p>{selectedThumb.name}</p>
-                    <Stars
-                      stars={selectedThumb.stars}
-                      userStars={selectedThumb.userStars}
-                      id={selectedThumb.id}
-                      gallery={true}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* <div className={styles.slider}>
+                {/* <div className={styles.slider}>
                 <Button className={styles.buttonLeftArrow}>
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     className={styles.icon}
                   ></FontAwesomeIcon>
                 </Button> */}
-              <div className='gallerySlider'>
-                {/* {typeProducts.map(product => (
+                <div className='gallerySlider'>
+                  {/* {typeProducts.map(product => (
                   <img
                     key={product.id}
                     className={`${styles.imageThumbnail} ${
@@ -184,25 +194,25 @@ const Gallery = () => {
                     src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
                   />
                 ))} */}
-                <div className={styles.slider}>
-                  <Slider {...settings}>
-                    {typeProducts.map(product => (
-                      <a
-                        key={product.id}
-                        className={product === selectedThumb ? 'active' : ''}
-                      >
-                        <img
+                  <div className={styles.slider}>
+                    <Slider {...settings}>
+                      {typeProducts.map(product => (
+                        <a
                           key={product.id}
-                          onClick={() => setSelectedThumb(product)}
-                          src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
-                        />
-                      </a>
-                    ))}
-                  </Slider>
+                          className={product === selectedThumb ? 'active' : ''}
+                        >
+                          <img
+                            key={product.id}
+                            onClick={() => handleClickThumb(product)}
+                            src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
+                          />
+                        </a>
+                      ))}
+                    </Slider>
+                  </div>
                 </div>
-              </div>
 
-              {/* {selectedCategory === 'featured' &&
+                {/* {selectedCategory === 'featured' &&
                   galleryData.featured.map(product => (
                     <img
                       key={product.id}
@@ -213,13 +223,14 @@ const Gallery = () => {
                       src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
                     />
                   ))} */}
-              {/* <Button className={styles.buttonRightArrow}>
+                {/* <Button className={styles.buttonRightArrow}>
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     className={styles.icon}
                   ></FontAwesomeIcon>
                 </Button>
               </div> */}
+              </div>
             </div>
           </div>
           <div className={`right-section col-6 ${styles.section}`}>

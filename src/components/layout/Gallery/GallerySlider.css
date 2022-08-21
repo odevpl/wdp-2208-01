@@ -16,7 +16,6 @@
 
 .gallerySlider .slick-active {
   outline: none;
-  animation: fadeIn 2s;
 }
 
 .gallerySlider .slick-slide a {
