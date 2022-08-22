@@ -12,6 +12,7 @@ import viewReducer from './viewRedux';
 import dealsReducer from './dealsRedux';
 import blogReducer from './blogRedux';
 import galleryProductsReducer from './galleryProductsRedux';
+import brandsReducer from './brandsRedux';
 
 // define reducers
 const reducers = {
@@ -24,6 +25,7 @@ const reducers = {
   deals: dealsReducer,
   blog: blogReducer,
   galleryProducts: galleryProductsReducer,
+  brands: brandsReducer,
 };
 
 // add blank reducers for initial state properties without reducers

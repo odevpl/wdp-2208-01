@@ -899,6 +899,38 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus fringilla purus, at aliquet ex. Nunc aliquet quis lorem mattis venenatis. Cras eget elit rutrum, eleifend est in, ornare mi.',
     },
   ],
+  brands: [
+    {
+      id: 'brand1',
+      name: 'Brand 1',
+      image: 'src=../../images/brands/brand1.jpg',
+    },
+    {
+      id: 'brand2',
+      name: 'Brand 2',
+      image: 'src=../../images/brands/brand2.jpg',
+    },
+    {
+      id: 'brand3',
+      name: 'Brand 3',
+      image: 'src=../../images/brands/brand3.jpg',
+    },
+    {
+      id: 'brand4',
+      name: 'Brand 4',
+      image: 'src=../../images/brands/brand4.jpg',
+    },
+    {
+      id: 'brand5',
+      name: 'Brand 5',
+      image: 'src=../../images/brands/brand5.jpg',
+    },
+    {
+      id: 'brand6',
+      name: 'Brand 6',
+      image: 'src=../../images/brands/brand6.jpg',
+    },
+  ],
 };
 
 export default initialState;
