@@ -17,19 +17,19 @@ import SearchPage from './components/views/SearchPage/SearchPage';
 
 const App = () => (
   <Provider store={store}>
-  <main>
-    <BrowserRouter>
-      <MainLayout>
-        <Switch>
-          <Route exact path={'/'} component={Homepage} />
-          <Route exact path={'/shop'} component={ShopPage} />
-          <Route exact path={'/shop/:categoryId'} component={ProductList} />
-          <Route exact path={'/product/:productId'} component={ProductPage} />
-          <Route exact path={'/blog'} component={Blog} />
-          <Route exact path={'/search'} component={SearchPage} />
-        </Switch>
-      </MainLayout>
-    </BrowserRouter>
+    <main>
+      <BrowserRouter>
+        <MainLayout>
+          <Switch>
+            <Route exact path={'/'} component={Homepage} />
+            <Route exact path={'/shop'} component={ShopPage} />
+            <Route exact path={'/shop/:categoryId'} component={ProductList} />
+            <Route exact path={'/product/:productId'} component={ProductPage} />
+            <Route exact path={'/blog'} component={Blog} />
+            <Route exact path={'/search'} component={SearchPage} />
+          </Switch>
+        </MainLayout>
+      </BrowserRouter>
     </main>
   </Provider>
 );
