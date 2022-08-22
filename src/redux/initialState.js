@@ -944,8 +944,69 @@ const initialState = {
     {
       id: 'brand12',
       name: 'Brand 12',
+      image: 'src=../../images/brands/brand6.jpg',
+    }
+  ],
+  hotDeals: [
+    {
+      id: 'aenean-ru-bristique-12',
+      name: 'Aenean Ru Bristique 12',
+      category: 'bed',
+      oldPrice: 50,
+      price: 30,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
+    },
+    {
+      id: 'aenean-ru-bristique-23',
+      name: 'Aenean Ru Bristique 23',
+      category: 'bed',
+      price: 30,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: false,
+      compare: false,
+    },
+    {
+      id: 'aenean-ru-bristique-17',
+      name: 'Aenean Ru Bristique 17',
+      category: 'bed',
+      price: 30,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
     },
   ],
-};
+
+  promotedDeals: [
+    {
+      id: 1,
+      img: 'promotedDeal0',
+      title1: 'Indoor ',
+      title2: 'furniture',
+      description: 'Save up to 50% of all furniture',
+    },
+    {
+      id: 2,
+      img: 'promotedDeal1',
+      title1: 'Fancy ',
+      title2: 'tables',
+      description: 'Buy two and get third for free',
+    },
+    {
+      id: 3,
+      img: 'promotedDeal2',
+      title1: 'Family ',
+      title2: 'chairs',
+      description: 'Check our special offer',
+    },
+  ],
+}
 
 export default initialState;
