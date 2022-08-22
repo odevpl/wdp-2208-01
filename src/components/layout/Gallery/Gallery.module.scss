@@ -275,8 +275,6 @@
       align-items: center;
       justify-content: center;
       border: 1px solid $button-bg-dark;
-      //   top: 220px;
-      //   right: 15px;
       &::before {
         content: "";
         position: absolute;
@@ -306,39 +304,6 @@
   .slider {
     animation: fadeIn 1s;
   }
-
-  // .slider {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   flex-direction: row;
-  //   .imageThumbnail {
-  //     width: 60px;
-  //     height: 60px;
-  //     margin-right: 10px;
-  //     margin-left: 10px;
-  //     opacity: 70%;
-  //   }
-  //   .active {
-  //     opacity: 100%;
-  //   }
-  //   .buttonLeftArrow,
-  //   .buttonRightArrow {
-  //     background-color: $button-bg-dark;
-  //     display: flex;
-  //     align-items: center;
-  //     width: 35px;
-  //     margin-left: 5px;
-  //     margin-right: 5px;
-  //     margin-bottom: 1px;
-  //     justify-content: center;
-  //     .icon {
-  //       color: $color-light;
-  //       &:hover {
-  //         color: $primary;
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 .photo {
@@ -416,18 +381,69 @@
   transition: opacity 1s;
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 990px) and (max-width: 1200px) {
   .categoryContainer {
     .productInfo {
       width: 100px;
       height: 100px;
       top: 150px;
-      left: 263px;
+      left: 230px;
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 990px) {
+  .categoryContainer {
+    .productInfo {
+      width: 100px;
+      height: 100px;
+      top: 150px;
+      left: 170px;
+      .productCart {
+        width: 200px;
+        &::before {
+          right: 177px;
+          border-top: 21px solid $color-light;
+          border-left: 21px solid $button-bg-dark;
+        }
+        &::after {
+          top: 57px;
+          border-top: 21px solid $color-light;
+          border-left: 21px solid $button-bg-dark;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .categoryContainer {
+    .productInfo {
+      width: 100px;
+      height: 100px;
+      top: 150px;
+      left: 170px;
+      .productCart {
+        width: 200px;
+        &::before {
+          right: 177px;
+          border-top: 21px solid $color-light;
+          border-left: 21px solid $button-bg-dark;
+        }
+        &::after {
+          top: 57px;
+          border-top: 21px solid $color-light;
+          border-left: 21px solid $button-bg-dark;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
   .rightSection {
     display: none;
   }

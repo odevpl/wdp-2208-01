@@ -20,7 +20,6 @@ import { getView } from '../../../redux/viewRedux';
 import Swipeable from '../../common/Swipeable/Swipeable';
 const Promoted = () => {
   const products = useSelector(state => getAll(state));
-  console.log('products', products[1].name);
 
   const dispatch = useDispatch();
   const productId = products[1].id;
@@ -29,12 +28,8 @@ const Promoted = () => {
     dispatch(toggleProductFavorite(productId));
   };
   const view = useSelector(state => getView(state));
-  const leftAction = () => {
-    console.log('Change slide to left');
-  };
-  const rightAction = () => {
-    console.log('Change slide to right');
-  };
+  const leftAction = () => {};
+  const rightAction = () => {};
   return (
     <div className={styles.root}>
       <div className='container'>
