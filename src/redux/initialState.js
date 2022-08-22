@@ -900,32 +900,50 @@ const initialState = {
     {
       id: 'brand1',
       name: 'Brand 1',
-      image: 'src=../../images/brands/brand1.jpg',
     },
     {
       id: 'brand2',
       name: 'Brand 2',
-      image: 'src=../../images/brands/brand2.jpg',
     },
     {
       id: 'brand3',
       name: 'Brand 3',
-      image: 'src=../../images/brands/brand3.jpg',
     },
     {
       id: 'brand4',
       name: 'Brand 4',
-      image: 'src=../../images/brands/brand4.jpg',
     },
     {
       id: 'brand5',
       name: 'Brand 5',
-      image: 'src=../../images/brands/brand5.jpg',
     },
     {
       id: 'brand6',
       name: 'Brand 6',
-      image: 'src=../../images/brands/brand6.jpg',
+    },
+    {
+      id: 'brand7',
+      name: 'Brand 7',
+    },
+    {
+      id: 'brand8',
+      name: 'Brand 8',
+    },
+    {
+      id: 'brand9',
+      name: 'Brand 9',
+    },
+    {
+      id: 'brand10',
+      name: 'Brand 10',
+    },
+    {
+      id: 'brand11',
+      name: 'Brand 11',
+    },
+    {
+      id: 'brand12',
+      name: 'Brand 12',
     },
   ],
 };

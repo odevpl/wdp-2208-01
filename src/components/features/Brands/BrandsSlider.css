@@ -1,0 +1,65 @@
+
+.brandsSlider .slick-slider {
+  border-top: #dee2e6 1px solid;
+  border-bottom: #dee2e6 1px solid;
+  padding-top: 5px;
+}
+
+.brandsSlider .slick-slider .slick-list {
+  margin: 40px 80px 30px 110px;
+}
+
+.brandsSlider .slick-slide img {
+  border: #dee2e6 1px solid;
+  max-width: 80%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.brandsSlider .slick-slider.slick-initialized .slick-prev {
+  z-index: 1;
+  position: absolute;
+  top: 49%;
+  left: 0;
+  width: 25px;
+  height: 109px;
+  cursor: pointer;
+  background: black;
+}
+
+.brandsSlider .slick-slider.slick-initialized .slick-prev::before {
+  content: "";
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-left: 5px;
+}
+
+.brandsSlider .slick-slider.slick-initialized .slick-next {
+  z-index: 1;
+  position: absolute;
+  top: 49%;
+  right: 0;
+  width: 25px;
+  height: 109px;
+  cursor: pointer;
+  background: black;
+}
+
+.brandsSlider .slick-slider.slick-initialized .slick-next::before {
+  content: "";
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-right: 3px;
+}
+
+.brandsSlider .activeSlide {
+  animation: fadeIn 1s;
+}
