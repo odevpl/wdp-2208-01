@@ -71,7 +71,10 @@ const Feedback = () => {
                       styles.client
                     }
                   >
-                    <img src={item.image} alt={item.name} />
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/feedback/${item.name}.jpg`}
+                      alt={item.name}
+                    />
                     <div className={styles.photoDescription}>
                       <p className='col-auto m-0'>{item.name}</p>
                       <p className='col-auto m-0'>Furniture client</p>
