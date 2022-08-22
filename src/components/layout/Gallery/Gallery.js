@@ -79,22 +79,22 @@ const Gallery = () => {
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 5,
+          slidesToScroll: 5,
         },
       },
       {
         breakpoint: 500,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 4,
+          slidesToScroll: 4,
         },
       },
       {
-        breakpoint: 320,
+        breakpoint: 410,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
     ],
@@ -104,7 +104,7 @@ const Gallery = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className={`left-section col-6 ${styles.section}`}>
+          <div className={`left-section col-12 col-md-6 ${styles.section}`}>
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={`col-12 ${styles.heading}`}>
@@ -190,7 +190,9 @@ const Gallery = () => {
               </div>
             </div>
           </div>
-          <div className={`right-section col-6 ${styles.section}`}>
+          <div
+            className={`right-section col-6 ${styles.section} ${styles.rightSection}`}
+          >
             <div className={styles.photo}>
               <img
                 className={styles.image}
