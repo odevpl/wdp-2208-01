@@ -6,13 +6,13 @@
 }
 
 .brandsSlider .slick-slider .slick-list {
-  margin: 20px 40px;
+  margin: 40px 80px 30px 110px;
 }
 
 .brandsSlider .slick-slide img {
   border: #dee2e6 1px solid;
-  width: 90%;
-  height: 100%;
+  max-width: 80%;
+  height: 90%;
   object-fit: contain;
 }
 

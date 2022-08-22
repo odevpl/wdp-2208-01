@@ -840,6 +840,30 @@ const initialState = {
       id: 'brand6',
       name: 'Brand 6',
     },
+    {
+      id: 'brand7',
+      name: 'Brand 7',
+    },
+    {
+      id: 'brand8',
+      name: 'Brand 8',
+    },
+    {
+      id: 'brand9',
+      name: 'Brand 9',
+    },
+    {
+      id: 'brand10',
+      name: 'Brand 10',
+    },
+    {
+      id: 'brand11',
+      name: 'Brand 11',
+    },
+    {
+      id: 'brand12',
+      name: 'Brand 12',
+    },
   ],
 };
 
