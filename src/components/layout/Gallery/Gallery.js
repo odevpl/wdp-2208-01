@@ -27,8 +27,6 @@ const Gallery = () => {
   const [fadeCategory, setFadeCategory] = useState(styles.fadeIn);
   const [fadeImage, setFadeImage] = useState(styles.fadeIn);
 
-  console.log(selectedThumb);
-
   const [selectedType, setSelectedType] = useState(galleryTypes[0].id);
 
   const handleTypeChange = category => {
