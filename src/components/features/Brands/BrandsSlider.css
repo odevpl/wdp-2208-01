@@ -6,7 +6,7 @@
 }
 
 .brandsSlider .slick-slider .slick-list {
-  margin: 40px 80px 30px 110px;
+  margin: 40px 80px 30px 100px;
 }
 
 .brandsSlider .slick-slide img {
@@ -14,6 +14,17 @@
   max-width: 80%;
   height: 90%;
   object-fit: contain;
+}
+@media (max-width: 511px) {
+  .brandsSlider .slick-slide img {
+    border: #dee2e6 1px solid;
+    max-width: 90%;
+    height: 70%;
+    object-fit: contain;
+  }
+  .brandsSlider .slick-slider .slick-list {
+    margin: 40px 80px 10px 90px;
+  }
 }
 
 .brandsSlider .slick-slider.slick-initialized .slick-prev {
