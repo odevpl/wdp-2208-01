@@ -16,7 +16,8 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavorite } from '../../../redux/productsRedux';
-
+import { getView } from '../../../redux/viewRedux';
+import Swipeable from '../../common/Swipeable/Swipeable';
 const Promoted = () => {
   const products = useSelector(state => getAll(state));
   console.log('products', products[1].name);
@@ -27,12 +28,18 @@ const Promoted = () => {
     e.preventDefault();
     dispatch(toggleProductFavorite(productId));
   };
-
+  const view = useSelector(state => getView(state));
+  const leftAction = () => {
+    console.log('Change slide to left');
+  };
+  const rightAction = () => {
+    console.log('Change slide to right');
+  };
   return (
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className='col-4'>
+          <div className={clsx('col-4', view === 'mobile' && styles.hide)}>
             <div className={styles.leftColumn}>
               <div className={styles.headerLeftColumn}>
                 <h2>Hot deals</h2>
@@ -125,27 +132,29 @@ const Promoted = () => {
             </div>
           </div>
 
-          <div className='col-8'>
-            <div className={styles.rightColumn}>
-              <div className={styles.imageRightColumn}>
-                <img
-                  className={styles.imageRight}
-                  src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 18.jpg`}
-                  alt='Aenean Ru Bristique'
-                />
-                <div className={styles.hero}>
-                  <h1>
-                    Indoor<span> Furniture</span>
-                  </h1>
-                  <h2>Save up to 50% of all furniture</h2>
-                  <button className={styles.heroButton}>Shop now</button>
+          <div className='col'>
+            <Swipeable rightAction={rightAction} leftAction={leftAction}>
+              <div className={styles.rightColumn}>
+                <div className={styles.imageRightColumn}>
+                  <img
+                    className={styles.imageRight}
+                    src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 18.jpg`}
+                    alt='Aenean Ru Bristique'
+                  />
+                  <div className={styles.hero}>
+                    <h1>
+                      Indoor<span> Furniture</span>
+                    </h1>
+                    <h2>Save up to 50% of all furniture</h2>
+                    <button className={styles.heroButton}>Shop now</button>
+                  </div>
+                </div>
+                <div className={styles.imageArrows}>
+                  <button className={styles.arrowLeft}>&#60;</button>
+                  <button className={styles.arrowRight}>&#62;</button>
                 </div>
               </div>
-              <div className={styles.imageArrows}>
-                <button className={styles.arrowLeft}>&#60;</button>
-                <button className={styles.arrowRight}>&#62;</button>
-              </div>
-            </div>
+            </Swipeable>
           </div>
         </div>
       </div>

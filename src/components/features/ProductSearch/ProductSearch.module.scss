@@ -97,6 +97,7 @@
     input {
       border: 0;
       padding-left: 10px;
+      padding-right: 0px;
       font-size: 14px;
       outline: none;
 
@@ -105,10 +106,12 @@
       }
     }
 
-    button {
-      border: 0;
-      background-color: transparent;
-      outline: none;
+    .icon {
+      color: $color-grey-160;
+      margin-right: 10px;
+      &:hover {
+        color: $color-orange;
+      }
     }
   }
 }

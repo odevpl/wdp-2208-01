@@ -60,7 +60,7 @@
 
             &.active,
             &:hover {
-              background-color: $primary
+              background-color: $primary;
             }
           }
         }
@@ -76,9 +76,10 @@
   .client {
     img {
       object-fit: cover;
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
       border-radius: 5px;
+      margin-right: 10px;
     }
 
     .photoDescription {
