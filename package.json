@@ -1,5 +1,10 @@
 {
   "name": "pizzeria-portal",
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/swiper/*"
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -45,6 +50,7 @@
     ]
   },
   "dependencies": {
+    "@babel/helper-regex": "^7.10.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
@@ -67,6 +73,7 @@
     "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4",
     "slick-carousel": "^1.8.1",
+    "swiper": "^8.3.2",
     "use-local-storage": "^2.3.6"
   },
   "devDependencies": {
