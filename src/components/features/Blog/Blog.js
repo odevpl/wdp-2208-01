@@ -39,7 +39,7 @@ const Blog = () => {
         </div>
         <div className='row'>
           {blog.slice(activePage * 3, (activePage + 1) * 3).map(item => (
-            <div key={item.id} className='col-4'>
+            <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
               <div className={styles.box}>
                 <div className={styles.image}>
                   <img

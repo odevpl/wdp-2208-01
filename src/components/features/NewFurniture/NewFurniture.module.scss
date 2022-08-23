@@ -4,6 +4,9 @@
   .panelBar {
     margin-bottom: 30px;
     position: relative;
+    @media (max-width: 768px) {
+      margin-bottom: 100px;
+    }
 
     :global(.row) > * {
       border-bottom: 4px solid $newFurNav-line-color;
@@ -80,7 +83,7 @@
     .dots {
       position: absolute;
       right: 0;
-      top: 0;
+      top: 70px;
 
       ul {
         margin: 0;
